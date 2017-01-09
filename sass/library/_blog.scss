@@ -1,0 +1,13 @@
+.main-article-author {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media(min-width:960px){
+  .main-article-author {
+    min-height: 0;
+    margin: 0 20px 10px 0;
+    padding: 0 0 5px;
+  }
+}

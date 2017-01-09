@@ -1,37 +1,26 @@
-$color1: #03a9f4;
-$color2: #ff9800;
-$staticColor: #f40011;
-
-$logo1Width: 126px;
-$logo2Width: 134px;
-
-$georgia: Georgia, Times, 'Times New Roman', serif;
-$helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-$roboto-reg: 'robotoregular', sans-serif;
-$roboto-med: 'robotomedium', sans-serif;
-$roboto-bold: 'robotobold', sans-serif;
-$roboto-slab-reg: 'roboto_slabregular', serif;
-$roboto-slab-bold: 'roboto_slabbold', serif;
+$nhgRegular: 'NeueHaasGroteskText W01', Helvetica, Arial, sans-serif;
+$nhgBold: 'NHaasGroteskTXW01-75Bd', Helvetica, Arial, sans-serif;
 
 // layout
 @import "_reset";
 @import "_global";
 @import "_icomoon";
-@import "_hamburgers";
-@import "_fonts";
+@import "_searchWrapper";
 
-@import "library/_header";
-@import "library/_navigation";
-@import "library/_resources";
-@import "library/_footer";
+// What color is the header? 'black' or 'white'?
+$nativeThemeColor: white;
+$headerHeight: 60px;
+$logoWidth: 169px;
+// $logoWidth: 100px;
+
+@import "library/_headerNav";
+@import "library/_videoPlayer";
 
 @import "library/_homepage";
 @import "library/_topicpage";
 @import "library/_articlepage";
 @import "library/_onereg";
 
-@import "library/_resources-article";
-@import "library/_resources-download";
-@import "library/_resources-videos";
-@import "library/_inlinePlayer";
+// IOTA blog? author styling
+@import "library/_blog";
+@import "_salesTool";

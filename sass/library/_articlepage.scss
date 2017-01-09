@@ -1,595 +1,376 @@
-#articleHeading {
-  background: $color1;
+.header-mobile-fixed {
+  .nativeAdContainer {
+    top: 0 !important;
+  }
 }
-#articleHeadingContainer {
-  padding: 20px 15px;
-}
-#articleTitle {
-  font-size: 10px;
+
+#nativeArticlepageMain{
+  background: #fff;
+  margin: 0 auto 40px;
+  padding: 52px 10px 0;
+  position: relative;
+  top: $headerHeight;
 
   h1 {
-    color: #fff;
-    font-family: $roboto-slab-reg;
-    font-size: 22px;
-    font-weight: normal;
-    line-height: 28px;
-    margin-top: 25px;
+    margin-bottom: 10px;
   }
-}
 
-#articleAuthor {
-  background: #fff;
+  a {
+    color: #00B3AC;
+    cursor: pointer;
 
-  #articleAuthorContainer {
+    &:hover {
+      color: #006860;
+    }
+  }
+
+  #nativeArticleHeading {
+    padding-bottom: 10px;
+  }
+
+  .mainContent{
+    p, ul, ol {
+      color: #666;
+      font-size: 15px;
+      line-height: 22px;
+      margin-bottom: 30px;
+    }
+
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    ol {
+      list-style-type: decimal;
+      padding-left: 20px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .articleAuthor {
+    color: #000;
+    font-size: 14px;
+    line-height: 19px;
+
+    a {
+      color: #008bc1;
+      cursor: pointer;
+
+      &:hover {
+        color: #005272;
+      }
+    }
+  }
+
+  .articleAuthorCompany {
+    color: #aaa;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .microsite-summary-image{
+    display: none;
+    z-index: 1;
+  }
+
+  .nativeAdContainer {
+    margin: 30px auto;
+    position: relative;
+    z-index: 1;
+    width: 300px;
+
+    &.hasAd {
+      display: block;
+    }
+  }
+
+  #network, #vendor-resources-bar {
+    background: url(../images/border_diagonal.png)repeat-x 0 top;
     height: auto;
     overflow: hidden;
-    padding: 20px 20px 15px;
-  }
-
-  ul {
-    li {
-      float: left;
-
-      &#authorName {
-        border-left: none;
-        padding-left: 0;
-
-        span {
-          color: #464646;
-          display: inline;
-          font-family: $roboto-reg;
-          font-size: 12px;
-          font-style: italic;
-        }
-
-        // &:after {
-        //   content: "|";
-        //   display: inline-block;
-        //   font-family: $helvetica;
-        //   font-weight: 200;
-        //   margin-left: 8px;
-        // }
-      }
-
-      &#authorEmail {
-        padding-left: 8px;
-        a {
-          color: #464646;
-          font-size: 24px;
-          margin-left: 6px;
-          position: relative;
-          top: -3px;
-        }
-        &:before {
-          content: "|";
-          display: inline-block;
-          font-family: $roboto-reg;
-          font-weight: 200;
-          margin-left: 0;
-          position: relative;
-          top: -7px;
-        }
-      }
-
-      &#authorTwitter {
-        // padding-left: 8px;
-        a {
-          color: #464646;
-          margin-left: 10px;
-        }
-        &:before {
-          content: "|";
-          display: inline-block;
-          font-family: $roboto-reg;
-          font-weight: 200;
-          margin-left: 6px;
-          position: relative;
-          top: 0;
-        }
-      }
-
-      i {
-        display: inline-block;
-      }
-      span {
-        display: none;
-      }
-    }
-  }
-}
-
-#articleBody {
-  background: #ebebeb;
-  clear: left;
-  height: auto;
-  overflow: hidden;
-  width: 100%;
-
-  #articleContainer {
-    padding: 20px 15px;
-  }
-
-  p {
-    color: #000;
-    font-size: 14px;
-    line-height: 22px;
-    margin-bottom: 20px;
-  }
-
-  li {
-    color: #000;
-    font-size: 14px;
-    line-height: 22px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-  }
-
-  ul li {
-    list-style: disc;
-  }
-
-  ol li {
-    list-style: decimal;
-  }
-
-  .inlineSplash {
-    background: #d7d7d7;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    margin: 20px auto;
-    padding: 25px;
-
-    h2 {
-      border-bottom: 3px solid $color2;
-      color: #000;
-      font-family: $roboto-reg;
-      font-size: 18px;
-      font-weight: normal;
-      margin-bottom: 10px;
-      padding-bottom: 10px;
-      text-transform: uppercase;
-    }
-
-    p.inlineSplashTitle {
-      font-family: $roboto-slab-reg;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    p.inlineSplashDescription {
-      font-family: $roboto-reg;
-      font-size: 14px;
-      line-height: 20px;
-      margin-bottom: 0;
-    }
-
-    .cta {
-      cursor: pointer;
-      display: block;
-      font-size: 14px;
-      font-family: $roboto-bold;
-      font-weight: bold;
-      line-height: inherit;
-      margin: 20px 0 0;
-      text-align: center;
-
-      i {
-        bottom: -3px;
-        color: $color1;
-        font-size: 16px;
-        margin-left: 15px;
-        position: relative;
-      }
-    }
-  }
-
-  blockquote {
-    border-top: 3px solid $color1;
-    border-bottom: 1px solid #b7b7b7;
-    color: $color1;
-    font-family: $roboto-slab-reg;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 24px;
-    margin: 20px 0;
-    padding: 15px 0 20px;
-  }
-}
-
-#articleRight {
-  display: none;
-
-  h6 {
-    border-bottom: 1px solid #b7b7b7;
-    border-top: 3px solid $color2;
-    font-family: $roboto-reg;
-    font-weight: 300;
-    font-size: 14px;
-    margin-bottom: 25px;
     padding: 10px 0;
-    text-transform: uppercase;
-  }
 
-  ul {
-    height: auto;
-    // overflow: hidden;
+    h4, .micrositeResourcesBarHeader {
+      font-family: $nhgBold;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
 
-    li {
-      clear: left;
-      height: auto;
-      list-style: none;
-      margin-bottom: 15px;
-      overflow: hidden;
+    ul li a{
+      border-top: 1px solid #e3e3e3;
+      display: block;
+      padding: 20px 0;
 
-      a {
-        .additionalDownloadsContent {
-          float: left;
-          width: 90%;
-        }
-        span.title{
-          color: #000;
-          cursor: pointer;
-          display: block;
-          font-family: $roboto-reg;
-          font-size: 12px;
-          font-weight: normal;
-          line-height: 16px;
-          padding-top: 3px;
-          position: relative;
-        }
-        span.cta {
-          color: $color1;
-          display: block;
-          font-family: $roboto-reg;
-          font-size: 12px;
-          margin-top: 8px;
-        }
+      h5{
+        color:#008ac0;
+        font-family: $nhgBold;
+        font-size: 14px;
+        font-weight:bold;
+        margin-bottom: 15px;
 
-        i.icon-download-arrow {
-          color: $color1;
-          float: left;
-          font-size: 18px;
-          margin-right: 10px;
-          position: relative;
-          top: 4px;
+        &:after{
+          color:#a6a6a6;
+          content: "\e900";
+          display: inline-block;
+          font-family: 'icomoon';
+          margin-left: 18px;
         }
 
         &:hover {
-          span.title {
-            color: $color1;
-            text-decoration: underline;
-          }
+          color: #005272;
         }
+      }
+      p{
+        color:#a6a6a6;
+        font-size: 12px;
+        line-height: 20px;
       }
     }
   }
 
-  .moreDownloads {
-    color: #000;
-    display: block;
-    font-family: $roboto-med;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 20px 0 0;
-    text-align: center;
+  #vendor-resources-bar {
 
-    i {
-      color: $color1;
-      font-size: 18px;
-      margin-left: 15px;
-      position: relative;
-      top: 3px;
+    ul li {
+      padding-bottom: 15px;
+
+      a {
+        padding: 20px 0 0;
+      }
+    }
+
+    a {
+      color:#008ac0;
+      font-family: $nhgBold;
+      font-size: 12px;
+      line-height: 14px;
+      font-weight:bold;
+    }
+    span {
+      color:#a6a6a6;
+      font-size: 12px;
+      line-height: 20px;
     }
   }
 }
 
 #overlay{
-  background: #fff;
-  border-top: 5px solid $color2;
+  background:url(../images/border_diagonal.png)0 0;
   bottom:-100%;
-  padding: 16px 20px 20px;
+  padding:10px;
   position: fixed;
   right:0;
-  width:320px;
+  width:300px;
   z-index: 8;
 }
 
 #overlayHeading{
-  border-bottom: 1px solid #b7b7b7;
-  margin-bottom: 15px;
+  background:#008cb1;
+  height:30px;
+  padding:0 10px;
   position: relative;
 
   p{
-    color:#666;
-    font-family: $roboto-slab-reg;
-    font-size: 18px;
-    line-height: 26px;
+    color:#fff;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 30px;
   }
 
   a{
-    background: #b7b7b7;
-    border-radius: 3px;
-    color: #fff;
+    color:#fff;
     cursor: pointer;
     font-family: sans-serif;
-    font-size: 14px;
-    height: 16px;
-    line-height: 14px;
+    font-size: 18px;
     position: absolute;
-    right: 0;
-    text-align: center;
+    right:10px;
     text-decoration: none;
-    top: 5px;
-    width: 16px;
-
-    &:hover {
-      background: $color1;
-    }
+    top:5px;
   }
 }
 
 #overlayContent{
+  background:#fff;
   position: relative;
 
   a{
     color:#000;
     display: block;
-    font-family: $roboto-slab-reg;
-    font-size: 18px;
-    font-weight: normal;
-    line-height: 22px;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+    padding: 10px;
     text-decoration: none;
-
-    &:hover {
-      color: $color1;
-      text-decoration: underline;
-    }
   }
 }
 
-@media ( min-width: 640px ){
-  #articleHeadingContainer, #articleAuthor #articleAuthorContainer, #articleBody #articleContainer {
-    margin: 0 auto;
-    max-width: 640px;
-  }
-
-  #articleAuthor ul li#authorEmail:before {
-    top: 0;
-  }
-  #articleAuthor #articleAuthorContainer ul li#authorEmail a {
-    margin-left: 8px;
-  }
-  #articleAuthor ul li#authorTwitter:before {
-    margin-left: 8px;
-  }
-  #articleAuthor ul li#authorTwitter a {
-    margin-left: 8px;
-  }
-
-  #articleTitle {
-    .articleBreadcrumb span {
-      color: #fff;
-    }
-  }
-
-  #articleBody {
-    blockquote {
-      float: left;
-      margin:6px 40px 15px 0;
-      width: 300px;
-    }
-  }
-
-  #articleRight {
-    height: auto;
-    overflow: hidden;
-    ul li {
-      clear: none;
-      float: left;
-      margin-bottom: 20px;
-      width: 48%;
-
-      &:nth-child(2n-1) {
-        clear: left;
-      }
-
-      &:nth-child(even) {
-        width: 47%;
-        margin-left: 2%;
-        margin-right: 1%;
-        padding-right: 0;
-      }
-
-      a {
-        // display: inline-block;
-        line-height: 16px;
-        position: relative;
-
-        &:before {
-          left: 0;
-          position: absolute;
-          top: -2px;
-        }
-      }
-    }
-  }
-  #overlay{
-    padding: 16px 20px 40px;
-    width: 320px;
-
-    #overlayHeading {
-      margin-bottom: 25px;
-    }
-  }
+#nativeArticleRight .nativeAdContainer {
+  display: none;
 }
 
-@media ( min-width: 960px ){
-  #articleHeadingContainer, #articleAuthor #articleAuthorContainer, #articleBody #articleContainer {
-    height: auto;
-    margin: 0 auto;
-    max-width: inherit;
-    width: 940px;
-  }
-
-  #articleHeadingContainer {
-    padding: 20px 0;
-  }
-
-  #articleAuthor #articleAuthorContainer {
-    padding: 20px 0 40px;
-  }
-
-  #articleBody {
-    #articleContainer {
-      padding: 40px 0;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 25px;
-    }
-
-    li {
-      font-size: 16px;
-      line-height: 25px;
-    }
-
-    blockquote {
-      font-size: 20px;
-      line-height: 27px;
-    }
-  }
-
-  #articleHeading {
-    background: #fff;
-  }
-
-  #articleTitle {
-    background: #fff;
+@media(min-width:640px){
+  #nativeArticlepageMain{
+    padding: 62px 20px 60px;
+    width: 640px;
 
     h1 {
-      color: #000;
-      font-size: 34px;
-      line-height: 40px;
+      font-size: 30px;
+      line-height: 35px;
+      margin-bottom: 30px;
     }
 
-    .articleBreadcrumb span {
-      color: #7f7f7f;
+    #nativeArticleHeading {
+      padding-bottom: 20px;
     }
-  }
 
-  #articleAuthor {
-    #articleAuthorContainer {
-      padding-bottom: 40px;
+    .mainContent {
+      p, ul, ol {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
 
-      ul {
-        li {
-          i {
-            display: none;
-          }
-          span {
-            color: #464646;
-            display: inline;
-            font-family: $roboto-reg;
-            font-size: 16px;
-            font-style: italic;
-            font-weight: 200;
-          }
-
-          &#authorName span {
-            color: #464646;
-            display: inline;
-            font-size: 16px;
-            font-weight: 200;
-          }
-          &#authorEmail {
-            a {
-              font-family: $roboto-reg;
-              font-size: 16px;
-              font-weight: 200;
-              top: 0;
-            }
-            &:after {
-              margin-left: 8px;
-              top: 0;
-            }
-          }
-          &#authorTwitter a span{
-            color: $color1;
-          }
-
+    #network, #vendor-resources-bar{
+      ul li{
+        float: left;
+        margin-right: 20px;
+        width: 290px;
+        &:last-child{
+          margin-right: 0;
         }
       }
     }
   }
 
-  #articleBodyContent {
-    float: left;
-    padding-right: 0;
-    width: 590px;
-
-    blockquote {
-      border: none;
-      float: left;
-      margin: 10px 30px 10px 0;
-      padding: 0;
-      width: 300px;
+  .nativeArticleListing {
+    li {
+      width: 270px;
     }
   }
 
-  #articleRight {
-    float: left;
-    font-size: 12px;
-    margin-left: 20px;
-    max-width: 300px;
-    padding: 0;
-    width: 300px;
-
-    h6 {
-      margin-bottom: 15px;
-    }
-
-    ul li, ul li:nth-child(even) {
-      float: none;
-      margin: 0 0 13px;
-      width: 100%;
-    }
-
-    ul li:last-child {
-      margin-bottom: 0;
-    }
-
-    li a:hover .additionalDownloadsContent span.title {
-      color: $color1;
-      text-decoration: underline;
-    }
+  #overlay{
+    width:320px;
   }
 
-  .breadcrumb span {
-    color: #7f7f7f;
+  #overlayContent a{
+    padding: 20px 10px 20px 42px;
+
+    &:before{
+      color: #008cb1;
+      content:"\e903";
+      font-family: 'icomoon';
+      display: block;
+      font-size: 25px;
+      left:10px;
+      position: absolute;
+      top:20px;
+    }
   }
 }
 
-@media ( min-width: 1280px ){
-  #articleTitle, #articleAuthor, #articleBodyContent {
-    margin: 0 auto;
-    // max-width: 940px;
-    padding-left: 0;
-    padding-right: 0;
+@media(min-width:960px){
+  #nativeArticlepageMain{
+    padding: 62px 40px 60px;
+    top: 0;
+    width: 880px;
+
+    h1 {
+      font-size: 40px;
+      line-height: 45px;
+    }
+
+    .mainContent{
+      width:460px;
+
+      p, ul, ol {
+        font-size: 17px;
+        line-height: 25px;
+      }
+
+      // p {
+      //   clear: left;
+      // }
+    }
+
+    .nativeAdContainer {
+      margin: 0;
+      position: absolute;
+      right: 40px;
+      top: 0;
+      z-index: 2;
+
+      > div:after {
+        background: #fff;
+        bottom: -20px;
+        content: " ";
+        display: block;
+        height: 20px;
+        position: absolute;
+        width: 300px;
+      }
+    }
+
+    .microsite-summary-image{
+      background: none;
+      display: block;
+      line-height: normal;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      visibility: hidden;
+      width: 300px;
+      img{
+        height: 250px;
+        width: 300px;
+      }
+    }
+    #network{
+      position: absolute;
+      right: 40px;
+      top: 335px;
+      width: 300px;
+      &.additionalAd{
+        top: 565px;
+      }
+      ul li{
+        float: none;
+        margin: 0;
+      }
+    }
+    #vendor-resources-bar{
+      position: absolute;
+      right: 40px;
+      top: 335px;
+      width: 300px;
+      &.additionalAd{
+        top: 565px;
+      }
+      ul li{
+        float: none;
+        margin: 0;
+      }
+    }
   }
+}
 
-  #articleContainer {
-    margin: 0 auto;
-    // max-width: 940px;
-    padding: 30px 0;
-  }
+@media(min-width:1280px){
+  #nativeArticlepageMain{
+    width: 1200px;
+    .mainContent{
+      width: 780px;
 
-  #articleBody {
-    padding: 0;
-
-    blockquote {
-      margin: 10px 30px 10px -150px;
+      p, ul, ol {
+        font-size: 18px;
+        line-height: 26px;
+      }
     }
   }
 }

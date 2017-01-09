@@ -87,10 +87,10 @@
             lastDelayLoc = null,
             timeoutId = null,
             options = $.extend({
-                rowSelector: "> li",
+                rowSelector: "> li.collapsed",
                 submenuSelector: "*",
                 submenuDirection: "right",
-                tolerance: 75,  // bigger = more forgivey when entering submenu
+                tolerance: 275,  // bigger = more forgivey when entering submenu
                 enter: $.noop,
                 exit: $.noop,
                 activate: $.noop,

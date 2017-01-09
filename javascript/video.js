@@ -1,779 +1,149 @@
-function getBrowserInfo()
-{
-	var ua = navigator.userAgent, tem,
-	M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
-	if(/trident/i.test(M[1]))
-	{
-		tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
-		return 'IE '+(tem[1] || '');
-	}
-	if(M[1]=== 'Chrome')
-	{
-		tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
-		if(tem!= null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
-	}
-	M = M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
-	if((tem= ua.match(/version\/(\d+)/i))!= null)
-		M.splice(1, 1, tem[1]);
-	return M.join(' ');
+if(typeof console === "undefined") {
+  console = {log: function() { }};
 }
 
-var browserInfo = getBrowserInfo();
+$(document).ready(function() {
 
-var apiBaseURL = 'https://edge.api.brightcove.com/playback/v1',
-    account_id = '1660622130',
-    policy_key = 'BCpkADawqM1O1SkJta2TNQzuPn2IvBXqzmiFZM7sHspVvArV5XSZMxMf5XJnkekrb50jdYOS9XDPYiywP9KarnzddUIPvZ_IQx36Frr8VEeaSUSdeUVyM5qm7hA';
+  $('#videoPlayerContainer').append('<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>');
 
-function videoResources(container, listID){
-  $.ajax({
-    headers:{
-      Accept:'application/json;pk=' + policy_key
-    },
-    type:'GET',
-    url: apiBaseURL + '/accounts/' + account_id + '/playlists/' + listID,
-    dataType:'json',
-    crossDomain: true,
-    error: function () {
-			browserInfo;
-			if(browserInfo == "MSIE 9") {
-				$('.placeholder').remove();
-			}
+  var videoHTML = $('#videoPlayerContainer>div'),
+      videoTagID = videoHTML.attr('id'),
+      playlistID = $('#video-1').data('list-id'),
+      videoID = $('#video-1').data('video-id'),
+      playerContainer = $('#videoPlayerContainer'),
+      playlistParent = $('#heroPlaylistContainer'),
+      playlistContainer = $('.vjs-playlist'),
+      playlistInfoContainer = $('#heroPlaylistInfoContainer'),
+      videoInfo = $('.videoInfo'),
+      body = $('html, body');
+
+  var clickToPlay = function(){
+    $('.vjs-poster').remove();
+    videojs(videoTagID).load();
+    videojs(videoTagID).play();
+  }
+
+  var tapToPlay = function(){
+    $('.vjs-poster').remove();
+    videojs(videoTagID).load();
+    videojs(videoTagID).play();
+  }
+
+  var tapToIndicate = function(){
+    if ($('video').attr('poster') == $('.vjs-playlist-item.vjs-selected .vjs-playlist-thumbnail img').attr('src')){
+      $('.vjs-selected .vjs-playlist-thumbnail').addClass('show');
     }
-  }).done(function(data) {
-    var i,
-        iMax,
-        playerWrapper = document.createElement('div'),
-        playlistWrapper = document.createElement('ul'),
-        playlistItem,
-        playlistItemThumbnailWrapper,
-        playlistItemThumbnailWrapperImage,
-        playlistItemDuration,
-        playlistItemTitle,
-        playlistItemDescription,
-        videoItem,
-        myPlayer,
-        iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false ),
-        myPlayerProps = {'id':'video-1','account':'1660622130','player':'SJJxTCbc','embed':'default','class':'video-js'},
-        desktopTouch = false,
-        modalPlaylistWrapper = $('ol.vjs-playlist'),
-        modalPlaylistItem,
-        modalPlaylistItemThumbnailWrapper,
-        modalPlaylistItemThumbnailImage,
-        modalPlaylistItemDuration,
-        modalPlaylistItemTitle,
-        playlistInfoContainer = $('#videoModalPlaylistInfoContainer'),
-        videoInfo = $('.videoInfo');
+    $('.vjs-poster').remove();
+  }
 
-    function loadModalVideo() {
-      myPlayer.catalog.getVideo(this.getAttribute('data-video-id'), function(error, video) {
-        myPlayer.catalog.load(video);
-        myPlayer.play();
-      });
-      $(this).addClass('vjs-selected');
-      $('.vjs-playlist-item').not(this).removeClass('vjs-selected');
-    }
+  if(videoHTML.length && typeof videoHTML !== 'undefined'){
 
-    function loadVideo() {
+    videojs(videoTagID).ready(function(data){
+      this.ga();
+      var myPlayer = this;
+      var posterArray = [];
+      $('.removeLI').remove();
 
-      $('#videoModal').addClass('showModal');
-      $('body').addClass('noScroll')
+      if(playlistID){
+        myPlayer.catalog.getPlaylist(playlistID, function(error, playlist){
 
-      for (j = 0; j < iMax; j++) {
-        modalVideoItem = data.videos[j];
+          myPlayer.catalog.load(playlist);
 
-        modalPlaylistItem = document.createElement('li');
-        modalPlaylistItem.setAttribute('class', 'vjs-playlist-item');
-        modalPlaylistItem.setAttribute('data-video-id', modalVideoItem.id);
-
-        modalPlaylistItemThumbnailWrapper = document.createElement('picture');
-        modalPlaylistItemThumbnailWrapper.setAttribute('class', 'vjs-playlist-thumbnail');
-
-        modalPlaylistItemThumbnailImage = document.createElement('img');
-        modalPlaylistItemThumbnailImage.src = modalVideoItem.poster;
-
-        var w = modalVideoItem.duration;
-        var x = w.toString();
-        var y = x.replace(/\./g, '');
-        var z = parseInt(y,10);
-
-        function msToTime(duration) {
-          var milliseconds = parseInt((duration%1000)/100),
-              seconds = parseInt((duration/1000)%60),
-              minutes = parseInt((duration/(1000*60))%60),
-              hours = parseInt((duration/(1000*60*60))%24);
-
-          hours = (hours < 10) ? "0" + hours : hours;
-          minutes = (minutes < 10) ? "0" + minutes : minutes;
-          seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-          if(hours < 1){
-            return minutes + ":" + seconds;
-          } else {
-            return hours + ":" + minutes + ":" + seconds;
+          var item;
+          for (item = 0; item < playlist.length; item++){
+            posterArray.push(playlist[item].poster);
           }
-        }
 
-        modalPlaylistItemDuration = document.createElement('time');
-        modalPlaylistItemDuration.setAttribute('class', 'vjs-playlist-duration');
-        modalPlaylistItemDuration.appendChild(document.createTextNode(msToTime(z)));
-
-        modalPlaylistItemTitle = document.createElement('cite');
-        modalPlaylistItemTitle.setAttribute('class', 'vjs-playlist-name');
-        modalPlaylistItemTitle.appendChild(document.createTextNode(modalVideoItem.name));
-
-        modalPlaylistItemThumbnailWrapper.appendChild(modalPlaylistItemThumbnailImage);
-        modalPlaylistItem.appendChild(modalPlaylistItemThumbnailWrapper);
-        modalPlaylistItem.appendChild(modalPlaylistItemDuration);
-        modalPlaylistItem.appendChild(modalPlaylistItemTitle);
-
-        modalPlaylistWrapper.append(modalPlaylistItem);
-        modalPlaylistItem.addEventListener('click', loadModalVideo);
-        modalPlaylistItem.addEventListener('tapone', loadModalVideo);
-      }
-
-      $('#videoModal #videoModalPlayerContainer').prepend('<video controls id="'+myPlayerProps.id+'"></video>');
-      $('#'+myPlayerProps.id).attr('data-account',myPlayerProps.account).attr('data-player',myPlayerProps.player).attr('data-embed',myPlayerProps.embed).addClass(myPlayerProps.class);
-      bc(document.getElementById(myPlayerProps.id));
-      myPlayer=videojs(myPlayerProps.id);
-
-      myPlayer.catalog.getVideo(this.getAttribute('data-video-id'), function(error, video) {
-        $('.vjs-poster').remove();
-        myPlayer.catalog.load(video);
-        myPlayer.play();
-      });
-
-			// $(document).on('custom', function() {
-			// 	myPlayer.play();
-			// });
-			//
-			// $(document).trigger('custom');
-
-      var toMatch = $(this).data('video-id');
-      $('.vjs-playlist-item[data-video-id*='+toMatch+']').addClass('vjs-selected');
-
-      if ($('.vjs-playlist-item').length == 2){
-        // exactly 2
-        $(playlistInfoContainer).remove();
-        $('#videoPlayerContainer').addClass('twoItems');
-      } else if ($('.vjs-playlist-item').length == 3){
-        $('#videoPlayerContainer').addClass('threeItems');
-        $(videoInfo).text($('.vjs-playlist-item').length + ' Videos');
-      } else if ($('.vjs-playlist-item').length == 4){
-        $('#videoPlayerContainer').addClass('fourItems');
-        $(videoInfo).text($('.vjs-playlist-item').length + ' Videos');
-      } else if ($('.vjs-playlist-item').length > 4){
-        $('#videoPlayerContainer').addClass('manyItems');
-        $(videoInfo).text($('.vjs-playlist-item').length + ' Videos');
-      } else {
-        $('#videoModalPlaylistContainer').remove();
-        $('#videoModalPlaylistInfoContainer').remove();
-      }
-
-			myPlayer.ready(function(){this.ga();});
-
-      myPlayer.one('loadstart', function(){
-
-				$('.vjs-big-play-button').remove();
-        $('.vjs-playlist-ad-overlay').remove();
-
-        modalPlaylistWrapper.bxSlider({
-          minSlides:1,
-          maxSlides: 4,
-          infiniteLoop: false,
-          slideMargin: 10,
-          slideWidth: 260,
-          moveSlides: 1,
-          nextSelector: '#slider-next',
-          prevSelector: '#slider-prev',
-          hideControlOnEnd: true
+          if (playlist.length == 2){
+            // exactly 2
+            $(playlistInfoContainer).remove();
+            $('#videoPlayerContainer').addClass('twoItems');
+          } else if (playlist.length == 3){
+            $('#videoPlayerContainer').addClass('threeItems');
+            $(videoInfo).text(playlist.length + ' Videos');
+          } else if (playlist.length == 4){
+            $('#videoPlayerContainer').addClass('fourItems');
+            $(videoInfo).text(playlist.length + ' Videos');
+          } else if (playlist.length > 4){
+            $('#videoPlayerContainer').addClass('manyItems');
+            $(videoInfo).text(playlist.length + ' Videos');
+          }
         });
 
-        var thumbnail = $('.vjs-playlist-thumbnail'),
-            selectedThumbnail = $('.vjs-playlist .vjs-playlist-item.vjs-selected .vjs-playlist-thumbnail'),
-            playlistItem = $('.vjs-playlist-item'),
-            nextButton = $('.bx-next'),
-            prevButton = $('.bx-prev');
+        myPlayer.one('loadstart', function(){
 
-        nextButton.html('<i class="icon-play"></i>');
-        prevButton.html('<i class="icon-play"></i>');
-      });
-    }
+          $('.vjs-playlist-ad-overlay, .vjs-poster').remove();
 
-    playerWrapper.setAttribute('class', 'player-wrapper');
-    playerWrapper.appendChild(playlistWrapper);
+          playlistContainer.bxSlider({
+            minSlides:1,
+            maxSlides: 4,
+            infiniteLoop: false,
+            slideMargin: 10,
+            slideWidth: 260,
+            moveSlides: 1,
+            nextSelector: '#slider-next',
+            prevSelector: '#slider-prev',
+            hideControlOnEnd: true
+          });
 
-    // build the playlist items
-    iMax = data.videos.length;
-    for (i = 0; i < iMax; i++) {
-      videoItem = data.videos[i];
-
-      playlistItem = document.createElement('li');
-      playlistItem.setAttribute('class', 'playlist-item');
-      playlistItem.setAttribute('data-video-id', videoItem.id);
-
-      playlistItemThumbnailWrapper = document.createElement('picture');
-      playlistItemThumbnailWrapper.setAttribute('class', 'playlist-thumbnail');
-
-      playlistItemThumbnailImage = document.createElement('img');
-      playlistItemThumbnailImage.src = videoItem.poster;
-
-      var w = videoItem.duration;
-      var x = w.toString();
-      var y = x.replace(/\./g, '');
-      var z = parseInt(y,10);
-
-      function msToTime(duration) {
-        var milliseconds = parseInt((duration%1000)/100),
-            seconds = parseInt((duration/1000)%60),
-            minutes = parseInt((duration/(1000*60))%60),
-            hours = parseInt((duration/(1000*60*60))%24);
-
-        hours = (hours < 10) ? "0" + hours : hours;
-        minutes = (minutes < 10) ? "0" + minutes : minutes;
-        seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-        if(hours < 1){
-          return minutes + ":" + seconds;
-        } else {
-          return hours + ":" + minutes + ":" + seconds;
-        }
-      }
-
-      playlistItemDuration = document.createElement('time');
-      playlistItemDuration.setAttribute('class', 'playlist-duration');
-      playlistItemDuration.appendChild(document.createTextNode(msToTime(z)));
-
-      playlistItemTitle = document.createElement('cite');
-      playlistItemTitle.setAttribute('class', 'playlist-name');
-      playlistItemTitle.appendChild(document.createTextNode(videoItem.name));
-
-      playlistItemDescription = document.createElement('p');
-      playlistItemDescription.setAttribute('class', 'playlist-description');
-      playlistItemDescription.appendChild(document.createTextNode(videoItem.description));
-
-      playlistItemThumbnailWrapper.appendChild(playlistItemThumbnailImage);
-      playlistItem.appendChild(playlistItemThumbnailWrapper);
-      playlistItem.appendChild(playlistItemDuration);
-      playlistItem.appendChild(playlistItemTitle);
-
-      playlistWrapper.appendChild(playlistItem);
-
-      playlistItem.addEventListener('click', loadVideo);
-      playlistItem.addEventListener('tapone', loadVideo);
-    }
-    function loadMore() {
-
-      var c = playerWrapper.getElementsByTagName('ul')[0].children;
-      var l;
-      for (l = 2; l < c.length; l++) {
-        c[l].style.display = 'block';
-      }
-      $(this).remove();
-    }
-    if (iMax > 3) {
-      var loadMoreButton = document.createElement('a');
-      loadMoreButton.setAttribute('class', 'loadMore');
-      loadMoreButton.appendChild(document.createTextNode('Load More'));
-      loadMoreButton.addEventListener('click', loadMore);
-      playerWrapper.appendChild(loadMoreButton);
-    }
-    // append playlist to the container
-    $(container).append(playerWrapper);
-    $(playerWrapper).css({'position':'relative'}).fadeIn('slow');
-    $(container).find('.placeholder').fadeOut('fast');
-  });
-}
-
-function getTopicVideos(listID){
-  $.ajax({
-    headers:{
-      Accept:'application/json;pk=' + policy_key
-    },
-    type:'GET',
-    url: apiBaseURL + '/accounts/' + account_id + '/playlists/' + listID,
-    dataType:'json',
-    crossDomain: true,
-    error: function () {
-			browserInfo;
-			if(browserInfo == "MSIE 9") {
-				$('#topicVideoComponent a#launchModal').remove();
-				$('<p class="upgrade">Please upgrade your browser for a better experience.</p>').insertAfter('#topicVideoComponent h6');
-				$('<a class="upgradeCTA" href="http://windows.microsoft.com/en-US/internet-explorer/download-ie" target="_blank">Upgrade Now</a>').insertAfter('#topicVideoComponent .upgrade');
-			}
-    }
-  }).done(function(data) {
-    var i,
-        iMax,
-        topicPlaylistItem,
-        topicPlaylistItemThumbnailWrapper = $('a#launchModal').find('picture'),
-        topicPlaylistItemThumbnailWrapperImage,
-        topicModalButton = $('a#launchModal'),
-        topicPlaylistItemTitle = topicModalButton.find('cite'),
-        topicPlaylistItemDuration = topicModalButton.find('time'),
-        topicVideoItem,
-        spinner = $('.spinner'),
-        myPlayer,
-        iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false ),
-        myPlayerProps = {'id':'video-1','account':'1660622130','player':'SJJxTCbc','embed':'default','class':'video-js'},
-        desktopTouch = false,
-        modalPlaylistWrapper = $('ol.vjs-playlist'),
-        modalPlaylistItem,
-        modalPlaylistItemThumbnailWrapper,
-        modalPlaylistItemThumbnailImage,
-        modalPlaylistItemDuration,
-        modalPlaylistItemTitle,
-        playlistInfoContainer = $('#videoModalPlaylistInfoContainer'),
-        videoInfo = $('.videoInfo');
-
-    function loadModalVideo() {
-      myPlayer.catalog.getVideo(this.getAttribute('data-video-id'), function(error, video) {
-        myPlayer.catalog.load(video);
-        myPlayer.play();
-      });
-      $(this).addClass('vjs-selected');
-      $('.vjs-playlist-item').not(this).removeClass('vjs-selected');
-    }
-
-    function loadVideo() {
-
-      $('#videoModal').addClass('showModal');
-      $('body').addClass('noScroll')
-
-      iMax = data.videos.length;
-      for (j = 0; j < iMax; j++) {
-        modalVideoItem = data.videos[j];
-
-        modalPlaylistItem = document.createElement('li');
-        modalPlaylistItem.setAttribute('class', 'vjs-playlist-item');
-        modalPlaylistItem.setAttribute('data-video-id', modalVideoItem.id);
-
-        modalPlaylistItemThumbnailWrapper = document.createElement('picture');
-        modalPlaylistItemThumbnailWrapper.setAttribute('class', 'vjs-playlist-thumbnail');
-
-        modalPlaylistItemThumbnailImage = document.createElement('img');
-        modalPlaylistItemThumbnailImage.src = modalVideoItem.poster;
-
-        var w = modalVideoItem.duration;
-        var x = w.toString();
-        var y = x.replace(/\./g, '');
-        var z = parseInt(y,10);
-
-        function msToTime(duration) {
-          var milliseconds = parseInt((duration%1000)/100),
-              seconds = parseInt((duration/1000)%60),
-              minutes = parseInt((duration/(1000*60))%60),
-              hours = parseInt((duration/(1000*60*60))%24);
-
-          hours = (hours < 10) ? "0" + hours : hours;
-          minutes = (minutes < 10) ? "0" + minutes : minutes;
-          seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-          if(hours < 1){
-            return minutes + ":" + seconds;
-          } else {
-            return hours + ":" + minutes + ":" + seconds;
+          var i;
+          for(i = 0; i < posterArray.length; i++){
+            var posterImage = $('.vjs-playlist-thumbnail img')[i];
+            posterImage.src = posterArray[i];
           }
-        }
 
-        modalPlaylistItemDuration = document.createElement('time');
-        modalPlaylistItemDuration.setAttribute('class', 'vjs-playlist-duration');
-        modalPlaylistItemDuration.appendChild(document.createTextNode(msToTime(z)));
+          var thumbnail = $('.vjs-playlist-thumbnail'),
+              selectedThumbnail = $('.vjs-playlist .vjs-playlist-item.vjs-selected .vjs-playlist-thumbnail'),
+              playlistItem = $('.vjs-playlist-item'),
+              nextButton = $('.bx-next'),
+              prevButton = $('.bx-prev');
 
-        modalPlaylistItemTitle = document.createElement('cite');
-        modalPlaylistItemTitle.setAttribute('class', 'vjs-playlist-name');
-        modalPlaylistItemTitle.appendChild(document.createTextNode(modalVideoItem.name));
+          nextButton.html('<i class="icon-play"></i>');
+          prevButton.html('<i class="icon-play"></i>');
+          playlistParent.fadeIn('slow');
+          playlistInfoContainer.fadeIn('slow');
+          $('#video-1').fadeIn('slow');
+          $('.spinner').remove();
 
-        modalPlaylistItemThumbnailWrapper.appendChild(modalPlaylistItemThumbnailImage);
-        modalPlaylistItem.appendChild(modalPlaylistItemThumbnailWrapper);
-        modalPlaylistItem.appendChild(modalPlaylistItemDuration);
-        modalPlaylistItem.appendChild(modalPlaylistItemTitle);
-
-        modalPlaylistWrapper.append(modalPlaylistItem);
-        modalPlaylistItem.addEventListener('click', loadModalVideo);
-      }
-
-      $('#videoModal #videoModalPlayerContainer').prepend('<video controls id="'+myPlayerProps.id+'"></video>');
-      $('#'+myPlayerProps.id).attr('data-account',myPlayerProps.account).attr('data-player',myPlayerProps.player).attr('data-embed',myPlayerProps.embed).addClass(myPlayerProps.class);
-      bc(document.getElementById(myPlayerProps.id));
-      myPlayer=videojs(myPlayerProps.id);
-
-      myPlayer.catalog.getVideo(this.getAttribute('data-video-id'), function(error, video) {
-        $('.vjs-poster').remove();
-        myPlayer.catalog.load(video);
-        myPlayer.play();
-      });
-
-			$(document).on('custom', function() {
-				myPlayer.play();
-			});
-
-			$(document).trigger('custom');
-
-      var toMatch = $(this).data('video-id');
-      $('.vjs-playlist-item[data-video-id*='+toMatch+']').addClass('vjs-selected');
-
-      if (data.videos.length == 2){
-        // exactly 2
-        $(playlistInfoContainer).remove();
-        $('#videoPlayerContainer').addClass('twoItems');
-      } else if (data.videos.length == 3){
-        $('#videoPlayerContainer').addClass('threeItems');
-        $(videoInfo).text($('.vjs-playlist-item').length + ' Videos');
-      } else if (data.videos.length == 4){
-        $('#videoPlayerContainer').addClass('fourItems');
-        $(videoInfo).text($('.vjs-playlist-item').length + ' Videos');
-      } else if (data.videos.length > 4){
-        $('#videoPlayerContainer').addClass('manyItems');
-        $(videoInfo).text($('.vjs-playlist-item').length + ' Videos');
-      } else {
-        $('#videoModalPlaylistContainer').remove();
-        $('#videoModalPlaylistInfoContainer').remove();
-      }
-
-			myPlayer.ready(function(){this.ga();});
-
-      myPlayer.one('loadstart', function(){
-
-        $('.vjs-playlist-ad-overlay, .vjs-big-play-button').remove();
-
-        modalPlaylistWrapper.bxSlider({
-          minSlides:1,
-          maxSlides: 4,
-          infiniteLoop: false,
-          slideMargin: 10,
-          slideWidth: 260,
-          moveSlides: 1,
-          nextSelector: '#slider-next',
-          prevSelector: '#slider-prev',
-          hideControlOnEnd: true
+          $('.vjs-playlist-item').each(function(){
+            $(this).on('click', function(){
+              $(this).find('.vjs-playlist-thumbnail').addClass('show');
+              clickToPlay();
+            });
+            $(this).on('tapone', function(){
+              $(this).find('.vjs-playlist-thumbnail').addClass('show');
+              tapToPlay();
+            });
+          });
+          // $('#video-1').on('click', function(){
+          //   clickToPlay();
+          //   tapToIndicate();
+          // });
+          // $('#video-1').on('tapone', function(){
+          //   clickToPlay();
+          //   tapToIndicate();
+          // });
         });
 
-        var thumbnail = $('.vjs-playlist-thumbnail'),
-            selectedThumbnail = $('.vjs-playlist .vjs-playlist-item.vjs-selected .vjs-playlist-thumbnail'),
-            playlistItem = $('.vjs-playlist-item'),
-            nextButton = $('.bx-next'),
-            prevButton = $('.bx-prev');
-
-        nextButton.html('<i class="icon-play"></i>');
-        prevButton.html('<i class="icon-play"></i>');
-      });
-    }
-
-    // Get the first video item
-    topicVideoItem = data.videos[0];
-
-    // Build the playlist image html structure and use the poster as the image source
-    topicPlaylistItemThumbnailImage = document.createElement('img');
-    topicPlaylistItemThumbnailImage.src = topicVideoItem.poster;
-    topicPlaylistItemThumbnailWrapper.append(topicPlaylistItemThumbnailImage);
-
-    // Insert the video name into the pre-existing cite tag
-    topicPlaylistItemTitle.append(document.createTextNode(topicVideoItem.name));
-
-    // Add Video ID
-    topicModalButton.attr('data-video-id', topicVideoItem.id);
-
-    // Convert milliseconds to a readable format 00:00
-    var w = topicVideoItem.duration;
-    var x = w.toString();
-    var y = x.replace(/\./g, '');
-    var z = parseInt(y,10);
-
-    function msToTime(duration) {
-      var milliseconds = parseInt((duration%1000)/100),
-          seconds = parseInt((duration/1000)%60),
-          minutes = parseInt((duration/(1000*60))%60),
-          hours = parseInt((duration/(1000*60*60))%24);
-
-      hours = (hours < 10) ? "0" + hours : hours;
-      minutes = (minutes < 10) ? "0" + minutes : minutes;
-      seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-      if(hours < 1){
-        return minutes + ":" + seconds;
-      } else {
-        return hours + ":" + minutes + ":" + seconds;
+      } else if (videoID) {
+        videojs(videoTagID).catalog.getVideo(videoID, function(error, video) {
+          videojs(videoTagID).catalog.load(video);
+          $('#video-1').fadeIn('slow');
+          $('.spinner').remove();
+          $('.vjs-poster').remove();
+          var ua = navigator.userAgent.toLowerCase();
+          var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+          if(isAndroid) {
+            var player = $('video').data('player');
+            $('.bc-player-' + player + '_default .vjs-control-bar').css('display','flex');
+          }
+        });
       }
-    }
 
-    // Insert the converted duration into the pre-existing time tag
-    topicPlaylistItemDuration.append(document.createTextNode(msToTime(z)));
 
-    $('a#launchModal').on('click', loadVideo);
-
-    // Remove the spinner
-    spinner.remove();
-  });
-}
-
-function singleFeaturedVideo(vidID){
-  $.ajax({
-    headers:{
-      Accept:'application/json;pk=' + policy_key
-    },
-    type:'GET',
-    url: apiBaseURL + '/accounts/' + account_id + '/videos/' + vidID,
-    dataType:'json',
-    crossDomain: true,
-    error: function () {
-			browserInfo;
-			if(browserInfo == "MSIE 9") {
-				$('#featuredItems ul li a#launchModal').remove();
-				$('<a href="http://windows.microsoft.com/en-US/internet-explorer/download-ie" target="_blank"><div class="thumbnail"><img src="images/featuredItem2.jpg"><i class="icon-upgrade"></i></div><p>Please upgrade your browser for a better experience</p><span class="cta">Upgrade Now</span></a>').appendTo('#featuredItems ul li:nth-child(3)');
-			}
-    }
-  }).done(function(data) {
-    var videoItem,
-        videoItemContainer = $('#featuredItems a#launchModal'),
-        videoItemThumbnailWrapper = $('#featuredItems a#launchModal .thumbnail'),
-        videoItemDuration = $('#featuredItems a#launchModal span.time'),
-        videoItemTitle = $('#featuredItems a#launchModal p'),
-        myPlayer,
-        iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false ),
-        myPlayerProps = {'id':'video-1','account':'1660622130','player':'SJJxTCbc','embed':'default','class':'video-js'},
-        desktopTouch = false,
-        videoInfo = $('.videoInfo');
-
-    function loadVideo() {
-
-      $('#videoModal').addClass('showModal');
-      $('body').addClass('noScroll')
-
-      $('#videoModal #videoModalPlayerContainer').prepend('<video controls id="'+myPlayerProps.id+'"></video>');
-      $('#'+myPlayerProps.id).attr('data-account',myPlayerProps.account).attr('data-player',myPlayerProps.player).attr('data-embed',myPlayerProps.embed).addClass(myPlayerProps.class);
-      bc(document.getElementById(myPlayerProps.id));
-      myPlayer=videojs(myPlayerProps.id);
-
-      myPlayer.catalog.getVideo(vidID, function(error, video) {
-        $('.vjs-poster').remove();
-        myPlayer.catalog.load(video);
-        myPlayer.play();
-      });
-
-			$(document).on('custom', function() {
-				myPlayer.play();
-			});
-
-			$(document).trigger('custom');
-
-			myPlayer.ready(function(){this.ga();});
-
-      myPlayer.one('loadstart', function(){
-        $('.vjs-playlist-ad-overlay, .vjs-big-play-button').remove();
-      });
-    }
-
-    videoItem = data;
-    videoItemTitle.prepend(document.createTextNode(videoItem.name));
-
-    var w = videoItem.duration;
-    var x = w.toString();
-    var y = x.replace(/\./g, '');
-    var z = parseInt(y,10);
-
-    function msToTime(duration) {
-      var milliseconds = parseInt((duration%1000)/100),
-          seconds = parseInt((duration/1000)%60),
-          minutes = parseInt((duration/(1000*60))%60),
-          hours = parseInt((duration/(1000*60*60))%24);
-
-      hours = (hours < 10) ? "0" + hours : hours;
-      minutes = (minutes < 10) ? "0" + minutes : minutes;
-      seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-      if(hours < 1){
-        return minutes + ":" + seconds;
-      } else {
-        return hours + ":" + minutes + ":" + seconds;
-      }
-    }
-
-    videoItemDuration.append(document.createTextNode(msToTime(z))).css('display','block');
-    videoItemContainer.on('click', loadVideo);
-  });
-}
-
-function singleLatestVideo(vidID){
-  $.ajax({
-    headers:{
-      Accept:'application/json;pk=' + policy_key
-    },
-    type:'GET',
-    url: apiBaseURL + '/accounts/' + account_id + '/videos/' + vidID,
-    dataType:'json',
-    crossDomain: true,
-    error: function () {
-			browserInfo;
-			if(browserInfo == "MSIE 9") {
-				$('#latestVideo a#launchModal').remove();
-				$('<p class="upgrade">Please upgrade your browser for a better experience.</p>').insertAfter('#latestVideo h6');
-				$('<a class="upgradeCTA" href="http://windows.microsoft.com/en-US/internet-explorer/download-ie" target="_blank">Upgrade Now</a>').insertAfter('#latestVideo .upgrade');
-			}
-    }
-  }).done(function(data) {
-    var videoItem,
-        videoItemContainer = $('#latestVideo a#launchModal'),
-        videoItemThumbnailWrapper = $('#latestVideo a#launchModal picture'),
-        videoItemThumbnailWrapperImage,
-        videoItemDuration = $('#latestVideo a#launchModal time'),
-        videoItemTitle = $('#latestVideo a#launchModal cite'),
-        myPlayer,
-        iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false ),
-        myPlayerProps = {'id':'video-1','account':'1660622130','player':'SJJxTCbc','embed':'default','class':'video-js'},
-        desktopTouch = false,
-        videoInfo = $('.videoInfo');
-
-    function loadVideo() {
-
-      $('#videoModal').addClass('showModal');
-      $('body').addClass('noScroll')
-
-      $('#videoModal #videoModalPlayerContainer').prepend('<video controls id="'+myPlayerProps.id+'"></video>');
-      $('#'+myPlayerProps.id).attr('data-account',myPlayerProps.account).attr('data-player',myPlayerProps.player).attr('data-embed',myPlayerProps.embed).addClass(myPlayerProps.class);
-      bc(document.getElementById(myPlayerProps.id));
-      myPlayer=videojs(myPlayerProps.id);
-
-      myPlayer.catalog.getVideo(vidID, function(error, video) {
-        $('.vjs-poster').remove();
-        myPlayer.catalog.load(video);
-        myPlayer.play();
-      });
-
-			$(document).on('custom', function() {
-				myPlayer.play();
-			});
-
-			$(document).trigger('custom');
-
-			myPlayer.ready(function(){this.ga();});
-
-      myPlayer.one('loadstart', function(){
-        $('.vjs-playlist-ad-overlay, .vjs-big-play-button').remove();
-      });
-    }
-
-    videoItem = data;
-    videoItemTitle.prepend(document.createTextNode(videoItem.name));
-
-    videoItemThumbnailWrapperImage = document.createElement('img');
-    videoItemThumbnailWrapperImage.src = videoItem.poster;
-
-    videoItemThumbnailWrapper.append(videoItemThumbnailWrapperImage);
-
-    var w = videoItem.duration;
-    var x = w.toString();
-    var y = x.replace(/\./g, '');
-    var z = parseInt(y,10);
-
-    function msToTime(duration) {
-      var milliseconds = parseInt((duration%1000)/100),
-          seconds = parseInt((duration/1000)%60),
-          minutes = parseInt((duration/(1000*60))%60),
-          hours = parseInt((duration/(1000*60*60))%24);
-
-      hours = (hours < 10) ? "0" + hours : hours;
-      minutes = (minutes < 10) ? "0" + minutes : minutes;
-      seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-      if(hours < 1){
-        return minutes + ":" + seconds;
-      } else {
-        return hours + ":" + minutes + ":" + seconds;
-      }
-    }
-
-    videoItemDuration.append(document.createTextNode(msToTime(z)));
-    videoItemContainer.on('click', loadVideo);
-  });
-}
-
-function featuredHeroVideo(vidID){
-  $.ajax({
-    headers:{
-      Accept:'application/json;pk=' + policy_key
-    },
-    type:'GET',
-    url: apiBaseURL + '/accounts/' + account_id + '/videos/' + vidID,
-    dataType:'json',
-    crossDomain: true,
-    error: function () {
-			browserInfo;
-			if(browserInfo == "MSIE 9") {
-				$('.heroPrimaryContainer h1').text('We have detected that you are using ' + getBrowserInfo() + '. Please upgrade your browser for a better experience.');
-				$('.heroPrimaryCTA').text('Upgrade Now');
-				$('.heroPrimaryTarget').attr({ href:"http://windows.microsoft.com/en-US/internet-explorer/download-ie", target:"_blank" });
-			}
-    }
-  }).done(function(data){
-    var videoItem,
-        videoItemContainer = $('.heroPrimaryTarget'),
-        videoItemDuration = $('.heroPrimaryTarget time'),
-        videoItemTitle = $('.heroPrimaryTarget h1'),
-        myPlayer,
-        iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false ),
-        myPlayerProps = {'id':'video-1','account':'1660622130','player':'SJJxTCbc','embed':'default','class':'video-js'},
-        desktopTouch = false,
-        videoInfo = $('.videoInfo');
-
-    function loadVideo() {
-      $('#videoModal').addClass('showModal');
-      $('body').addClass('noScroll');
-
-      $('#videoModal #videoModalPlayerContainer').prepend('<video controls id="'+myPlayerProps.id+'"></video>');
-      $('#'+myPlayerProps.id).attr('data-account',myPlayerProps.account).attr('data-player',myPlayerProps.player).attr('data-embed',myPlayerProps.embed).addClass(myPlayerProps.class);
-      bc(document.getElementById(myPlayerProps.id));
-      myPlayer=videojs(myPlayerProps.id);
-
-      myPlayer.catalog.getVideo(vidID, function(error, video) {
-        $('.vjs-poster').remove();
-        myPlayer.catalog.load(video);
-        myPlayer.play();
-      });
-
-			$(document).on('custom', function() {
-				myPlayer.play();
-			});
-
-			$(document).trigger('custom');
-
-			myPlayer.ready(function(){this.ga();});
-
-      myPlayer.one('loadstart', function(){
-        $('.vjs-playlist-ad-overlay, .vjs-big-play-button').remove();
-      });
-    }
-
-    videoItem = data;
-    videoItemTitle.prepend(document.createTextNode(videoItem.name));
-    $('.heroPrimaryTarget h1').css('background','none');
-
-    var w = videoItem.duration;
-    var x = w.toString();
-    var y = x.replace(/\./g, '');
-    var z = parseInt(y,10);
-
-    function msToTime(duration) {
-      var milliseconds = parseInt((duration%1000)/100),
-          seconds = parseInt((duration/1000)%60),
-          minutes = parseInt((duration/(1000*60))%60),
-          hours = parseInt((duration/(1000*60*60))%24);
-
-      hours = (hours < 10) ? "0" + hours : hours;
-      minutes = (minutes < 10) ? "0" + minutes : minutes;
-      seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-      if(hours < 1){
-        return minutes + ":" + seconds;
-      } else {
-        return hours + ":" + minutes + ":" + seconds;
-      }
-    }
-
-    videoItemDuration.append(document.createTextNode(msToTime(z))).css('display','block');
-    $('.heroPrimaryTarget time').css('background','none');
-    videoItemContainer.on('click', loadVideo);
-  });
-}
+    });
+  }
+});
 
 /**
  * BxSlider v4.1.2 - Fully loaded, responsive content slider

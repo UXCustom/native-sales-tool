@@ -22,6 +22,7 @@
     <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/respond.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/modernizr.custom.50545.js"></script>
     <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery-1.10.1.min.js"></script>
+    <script src="http://cdn.ttgtmedia.com/rms/ux/responsive/js/responsive.min.js?v=6.43"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="144×144" href="/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="114×114" href="/apple-touch-icon-114x114.png">
@@ -32,235 +33,469 @@
     <link rel="apple-touch-icon-precomposed" sizes="72×72" href="/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
     <link rel="stylesheet" href="css/style-responsive.css" type="text/css" media="screen">
-    <link id="sheet1" rel="stylesheet" href="php/css.php" type="text/css" media="screen">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!-- Begin Google Tag Manager-->
-    <noscript>
-      <iframe src="//www.googletagmanager.com/ns.html?id=GTM-PWWZSH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PWWZSH');</script>
-    <noscript>
-      <iframe src="//www.googletagmanager.com/ns.html?id=GTM-5CSF7N" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5CSF7N');</script>
-    <!-- End Google Tag Manager-->
     <script src="javascript/jgestures.min.js"></script>
     <script src="javascript/script-responsive.js"></script>
-    <script src="javascript/video.js"></script>
-    <script type="text/javascript" src="javascript/jspdf.min.js"></script>
-    <script type="text/javascript" src="javascript/html2canvas.js"></script>
+    <script type="text/javascript" src="javascript/salesTool.js"></script>
   </head>
   <body>
-    <div id="micrositeWrapper">
-      <header id="articleHeader">
-        <div id="articleHeaderCompress">
-          <div id="articleHeadline">
-            <button type="button" class="hamburger"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
-            <p><a href="index.html" class="siteTitle">Productivity and Collaboration</a></p><a class="socialButton st-color1"><i class="icon-share"></i></a>
-          </div>
-          <div id="articleSponsorContainer">
-            <ul class="oneClient">
-              <li><a href="http://www.techtarget.com"><img src="images/clientLogo1.png"></a></li>
-            </ul>
-            <ul class="twoClients">
-              <li><a href="http://www.techtarget.com"><img src="images/clientLogo3.png"></a></li>
-              <li><a href="http://www.techtarget.com"><img src="images/clientLogo2.png"></a></li>
-            </ul>
-          </div>
-          <nav id="articleSocialNav">
-            <p>Like what you see? Please share.</p>
-            <div class="share-bar-container">
-              <ul class="share-bar">
-                <li title="Like/Share on Facebook" data-socialsite="facebook" class="share-bar-item share-bar-item-desktop socialMedia-facebook"><a href="#" class="st-color1"><i data-icon="u" class="icon"></i></a></li>
-                <li title="Share on Twitter" data-socialsite="twitter" class="share-bar-item share-bar-item-desktop socialMedia-twitter"><a href="#" class="st-color1"><i data-icon="c" class="icon"></i></a></li>
-                <li title="Share on LinkedIn" data-socialsite="linkedin" class="share-bar-item share-bar-item-desktop socialMedia-linkedin"><a href="#" class="st-color1"><i data-icon="o" class="icon"></i></a></li>
-                <li title="Email a Friend" class="share-bar-item share-bar-item-desktop contentTools-email"><a href="&amp;" class="st-color1"><i data-icon="n" class="icon"></i></a></li>
-              </ul>
-            </div>
-          </nav>
+    <div id="editWindow">
+      <form id="demo-email-settings-form" action="mailto:cguarrera@techtarget.com?subject=myform_submission" enctype="text/plain">
+        <div class="demo-header"><img src="http://cdn.ttgtmedia.com/rms/ux/responsive/img/nav_logo@2x.png" alt="TechTarget">
+          <p class="demo-header-title">Embedded Sites Demo</p>
         </div>
-      </header>
-      <div id="articleNavigationContainer">
-        <nav id="articleNavigation">
-          <div id="articleNavigationCompress"><a id="topicsButton" class="topicsButton">Topics<i class="icon-menu"></i></a>
-            <ul id="articleMainNav">
-              <li data-submenu-id="submenu-cloud"><a href="topic.html" class="st-color1">Cloud<i class="icon-play"></i></a>
-                <ul id="submenu-cloud">
-                  <li><a href="article.html">Article 1</a></li>
-                  <li><a href="">Article 2</a></li>
-                  <li><a href="">Article 3</a></li>
-                  <li><a href="">More On This Topic<i class="icon-more-arrow st-color1"></i></a></li>
-                </ul>
-              </li>
-              <li data-submenu-id="submenu-mbp"><a href="http://www.cnn.com" class="st-color1">Modern Best Practices<i class="icon-play"></i></a>
-                <ul id="submenu-mbp">
-                  <li><a href="">Article 1</a></li>
-                  <li><a href="">Article 2</a></li>
-                  <li><a href="">Article 3</a></li>
-                  <li><a href="">More On This Topic<i class="icon-more-arrow st-color1"></i></a></li>
-                </ul>
-              </li>
-              <li data-submenu-id="submenu-datacenter"><a href="http://www.boston.com" class="st-color1">Data Center<i class="icon-play"></i></a>
-                <ul id="submenu-datacenter">
-                  <li><a href="">Article 1</a></li>
-                  <li><a href="">Article 2</a></li>
-                  <li><a href="">Article 3</a></li>
-                  <li><a href="">More On This Topic<i class="icon-more-arrow st-color1"></i></a></li>
-                </ul>
-              </li>
-              <li data-submenu-id="submenu-workloads"><a href="" class="st-color1">Workloads<i class="icon-play"></i></a>
-                <ul id="submenu-workloads">
-                  <li><a href="">Article 1</a></li>
-                  <li><a href="">Article 2</a></li>
-                  <li><a href="">Article 3</a></li>
-                  <li><a href="">More On This Topic<i class="icon-more-arrow st-color1"></i></a></li>
-                </ul>
-              </li>
-              <li data-submenu-id="submenu-sro"><a href="" class="st-color1">Small & Report Office<i class="icon-play"></i></a>
-                <ul id="submenu-sro">
-                  <li><a href="">Article 1</a></li>
-                  <li><a href="">Article 2</a></li>
-                  <li><a href="">Article 3</a></li>
-                  <li><a href="">More On This Topic<i class="icon-more-arrow st-color1"></i></a></li>
-                </ul>
-              </li>
-              <li data-submenu-id="submenu-nt"><a href="" class="st-color1">New Topic<i class="icon-play"></i></a>
-                <ul id="submenu-nt">
-                  <li><a href="">Article 1</a></li>
-                  <li><a href="">Article 2</a></li>
-                  <li><a href="">Article 3</a></li>
-                  <li><a href="">More On This Topic<i class="icon-more-arrow st-color1"></i></a></li>
-                </ul>
-              </li>
-              <li class="separator"></li>
-            </ul>
-            <ul id="articleResourcesNav">
-              <li>Resources<i class="icon-play"></i>
-                <ul>
-                  <li><a href="resources-articles.html" class="st-color1">Articles<i class="icon-play"></i></a></li>
-                  <li><a href="resources-downloads.html" class="st-color1">Downloads<i class="icon-play"></i></a></li>
-                  <li><a href="resources-videos.html" class="st-color1">Videos<i class="icon-play"></i></a></li>
-                </ul>
-              </li>
-            </ul>
+        <div class="demo-site-nav hideNav">
+          <ul class="demo-site-nav-list">
+            <li data-id="1" class="demo-site-nav-list-item">Article</li>
+            <li data-id="2" class="demo-site-nav-list-item">Embedded - Center</li>
+            <li data-id="3" class="demo-site-nav-list-item">Embedded - Dark</li>
+            <li data-id="4" class="demo-site-nav-list-item">Embedded - Light</li>
+            <li data-id="4" class="demo-site-nav-list-item selected">Native Advertising</li>
+          </ul><i data-icon="5" class="icon icon-arrow-down"></i>
+        </div>
+        <div class="demo-settings">
+          <p>Select A Color
+            <select id="colorChoice">
+              <option value="White" selected="selected">White</option>
+              <option value="Black">Black</option>
+            </select>
+          </p>
+        </div>
+        <div class="demo-footer"><a title="Email These Settings" onclick="javascript:getSettings();" class="demo-footer-button demo-button-email">Email</a>
+          <button title="Download PDF" onclick="javascript:generatePDF();" class="demo-footer-button demo-button-pdf">PDF</button>
+          <button title="Reset Settings" class="demo-footer-button demo-button-reset reset">Reset</button>
+          <div title="Close" class="pull">
+            <p></p>
           </div>
-        </nav>
-      </div>
-      <section id="topic">
-        <div id="topicHeading">
-          <div id="topicHeadingContainer">
-            <div id="topicTitle">
-              <div class="breadcrumb"><span><i class="icon-home"></i></span><span><a href="index.html">Home</a></span></div>
-              <h1>Cloud</h1>
-            </div>
-            <div id="topicHeadingContent">
-              <div class="microsite-summary-image">
-                <div class="imageWithCredit">
-                  <p>Shutterstock</p><img src="images/article-topic-data-center_0001.png">
+        </div>
+      </form>
+    </div>
+    <div class="site-container">
+      <header class="header">
+        <button class="nav-toggle"><i data-icon="9" class="icon"></i></button><a href="/" class="header-logo"><img src="http://cdn.ttgtmedia.com/microsites/ttgtShell/img/nav_logotype.png" alt="TechTarget" class="header-logo-mobile replace_2x"><img src="http://cdn.ttgtmedia.com/microsites/ttgtShell/img/nav_logo.png" alt="TechTarget" class="header-logo-desktop replace_2x"><img src="http://cdn.ttgtmedia.com/microsites/ttgtShell/img/nav_logo.png" alt="TechTarget" class="header-logo-small replace_2x"></a>
+        <button class="header-search-toggle"><i data-icon="g" class="icon"></i></button>
+        <form class="header-search">
+          <label for="header-search-input" class="visuallyhidden">Search TechTarget</label>
+          <input id="header-search-input" type="text" placeholder="Search TechTarget" class="header-search-input">
+        </form>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-list-item nav-list-item-searchsites">
+              <div class="nav-list-item-header"><span class="nav-list-item-header-title"><span>Search</span>Content Management</span><i data-icon="5" class="icon icon-arrow-down"></i></div>
+              <div class="nav-list-sublist nav-list-item-dropdown">
+                <ul class="nav-list-item-jscroll">
+                  <li class="nav-list-sublist-item"><a href="#">SearchCompliance</a></li>
+                  <li class="nav-list-sublist-item"><a href="#">SearchContent Management</a></li>
+                  <li class="nav-list-sublist-item"><a href="#">SearchData Backup</a></li>
+                  <li class="nav-list-sublist-item"><a href="#">SearchDisaster Recovery</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-list-item nav-list-item-topics">
+              <div class="nav-list-item-header"><span class="nav-list-item-header-type">Topic</span><span class="nav-list-item-header-title">Disk Array</span><i data-icon="5" class="icon icon-arrow-down"></i><i data-icon="A" class="icon icon-navigation-detail"></i></div>
+              <div class="nav-list-item-dropdown">
+                <div class="nav-list-item-jscroll">
+                  <div id="child-topic-cloud-storage" class="nav-list-child-topics">
+                    <div class="nav-list-sublist-header nav-list-sublist-header-topics"><span class="nav-list-sublist-header-topics-title">Cloud Storage</span><span class="view-all">View All<i data-icon="6" class="icon"></i></span></div>
+                    <ul class="nav-list-sublist">
+                      <li class="nav-list-sublist-item"><a href="#">CLOUD STORAGE</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Content Analytics</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Web Content Management</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Workflow</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">ECM Software Platforms</a></li>
+                    </ul>
+                  </div>
+                  <div id="child-topic-storage-and-virtualization" class="nav-list-child-topics">
+                    <div class="nav-list-sublist-header nav-list-sublist-header-topics"><span class="nav-list-sublist-header-topics-title">Storage and Virtualization</span><span class="view-all">View All<i data-icon="6" class="icon"></i></span></div>
+                    <ul class="nav-list-sublist">
+                      <li class="nav-list-sublist-item"><a href="#">STORAGE AND VIRT</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Content Analytics</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Web Content Management</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Workflow</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">ECM Software Platforms</a></li>
+                    </ul>
+                  </div>
+                  <div id="child-topic-san" class="nav-list-child-topics">
+                    <div class="nav-list-sublist-header nav-list-sublist-header-topics"><span class="nav-list-sublist-header-topics-title">SAN (Storage Area Network)</span><span class="view-all">View All<i data-icon="6" class="icon"></i></span></div>
+                    <ul class="nav-list-sublist">
+                      <li class="nav-list-sublist-item"><a href="#">SAN</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Content Analytics</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Web Content Management</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Workflow</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">ECM Software Platforms</a></li>
+                    </ul>
+                  </div>
+                  <div id="child-topic-nas" class="nav-list-child-topics">
+                    <div class="nav-list-sublist-header nav-list-sublist-header-topics"><span class="nav-list-sublist-header-topics-title">NAS (Network Attached Storage)</span><span class="view-all">View All<i data-icon="6" class="icon"></i></span></div>
+                    <ul class="nav-list-sublist">
+                      <li class="nav-list-sublist-item"><a href="#">NAS</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Content Analytics</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Web Content Management</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Workflow</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">ECM Software Platforms</a></li>
+                    </ul>
+                  </div>
+                  <div id="child-topic-primary-storage-or-storage-hardware" class="nav-list-child-topics">
+                    <div class="nav-list-sublist-header nav-list-sublist-header-topics"><span class="nav-list-sublist-header-topics-title">Primary Storage or Storage Hardware</span><span class="view-all">View All<i data-icon="6" class="icon"></i></span></div>
+                    <ul class="nav-list-sublist">
+                      <li class="nav-list-sublist-item"><a href="#">PRIMARY STORAGE</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Content Analytics</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Web Content Management</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Workflow</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">ECM Software Platforms</a></li>
+                    </ul>
+                  </div>
+                  <div id="child-topic-data-backup" class="nav-list-child-topics">
+                    <div class="nav-list-sublist-header nav-list-sublist-header-topics"><span class="nav-list-sublist-header-topics-title">Data Backup</span><span class="view-all">View All<i data-icon="6" class="icon"></i></span></div>
+                    <ul class="nav-list-sublist">
+                      <li class="nav-list-sublist-item"><a href="#">DATA BACKUP</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Content Analytics</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Web Content Management</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">Workflow</a></li>
+                      <li class="nav-list-sublist-item"><a href="#">ECM Software Platforms</a></li>
+                    </ul>
+                  </div>
+                  <div class="nav-list-parent-topics">
+                    <div class="nav-list-sublist-header nav-list-sublist-header-gray">Please select a category</div>
+                    <ul class="nav-list-sublist">
+                      <li id="parent-topic-cloud-storage" class="nav-list-sublist-item">Cloud Storage</li>
+                      <li id="parent-topic-storage-and-virtualization" class="nav-list-sublist-item">Storage and Virtualization</li>
+                      <li id="parent-topic-san" class="nav-list-sublist-item">SAN (Storage Area Network)</li>
+                      <li id="parent-topic-nas" class="nav-list-sublist-item">NAS (Network Attached Storage)</li>
+                      <li id="parent-topic-primary-storage-or-storage-hardware" class="nav-list-sublist-item">Primary Storage or Storage Hardware</li>
+                      <li id="parent-topic-data-backup" class="nav-list-sublist-item">Data Backup</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-              <h1>Cloud</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore autem nisi, voluptatem error odio. Perspiciatis, aperiam, eveniet, molestias iusto vitae officia harum iure illum, reiciendis possimus laudantium ullam voluptate voluptates?</p>
-            </div>
-          </div>
-        </div>
-        <div id="topicBody">
-          <div id="topicBodyContainer">
-            <div id="topicBodyContent">
-              <div class="articleListing">
-                <h2>Articles</h2>
-                <ul>
-                  <li><a href="article.html"><span class="title st-color1">Using Oracle Business Intelligence Cloud Service</span><span class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita esse, dignissimos maiores! </span><span class="continue">Continue Reading<i class="icon-more-arrow st-color1"></i></span></a></li>
-                  <li><a href=""><span class="title st-color1">Oracle Flash Storage System Support and Interoperability</span><span class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita esse, dignissimos maiores! </span><span class="continue">Continue Reading<i class="icon-more-arrow st-color1"></i></span></a></li>
-                  <li><a href=""><span class="title st-color1">Complete, Open and Integrated Solutions</span><span class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita esse, dignissimos maiores! </span><span class="continue">Continue Reading<i class="icon-more-arrow st-color1"></i></span></a></li>
-                  <li><a href=""><span class="title st-color1">Using Oracle Business Intelligence Cloud Service</span><span class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita esse, dignissimos maiores! </span><span class="continue">Continue Reading<i class="icon-more-arrow st-color1"></i></span></a></li>
-                </ul><a class="loadMore">Load More<i class="icon-show-more st-color1"></i></a>
+            </li>
+            <li class="nav-list-item nav-list-item-sections">
+              <div class="nav-list-item-header"><span class="nav-list-item-header-type">Section</span><span class="nav-list-item-header-title">News</span><i data-icon="5" class="icon icon-arrow-down"></i><i data-icon="B" class="icon icon-navigation-arrow"></i></div>
+              <div class="nav-list-sublist nav-list-item-dropdown">
+                <ul class="nav-list-item-jscroll">
+                  <li class="nav-list-sublist-item"><a href="#">Troubleshoot</a></li>
+                  <li class="nav-list-sublist-item"><a href="#">News</a></li>
+                  <li class="nav-list-sublist-item"><a href="#">Evaluate</a></li>
+                  <li class="nav-list-sublist-item"><a href="#">Introduction</a></li>
+                  <li class="nav-list-sublist-item"><a href="#">Define</a></li>
+                  <li class="nav-list-sublist-item"><a href="#">Manage</a></li>
+                </ul>
               </div>
-            </div>
-            <div id="topicRight">
-              <div id="topicVideoComponent">
-                <h6>Featured Videos</h6><a id="launchModal" data-list-id="4763254682001">
-                  <picture>
-                    <div class="spinner">
-                      <div class="rect1"></div>
-                      <div class="rect2"></div>
-                      <div class="rect3"></div>
-                      <div class="rect4"></div>
-                      <div class="rect5"></div>
-                    </div>
-                  </picture>
-                  <time></time>
-                  <cite></cite>
-                  <div class="moreVideos">View More Videos<i class="icon-modal st-color1"></i></div></a>
-                <script>
-                  var listID = $('a#launchModal').data('list-id');
-                  getTopicVideos(listID);
-                </script>
-              </div>
-              <div id="additionalDownloads">
-                <h6>Additional Downloads</h6>
-                <ul class="additionalDownloads">
-                  <li><a href="onereg.html" class="st-color1"><i class="icon-download-arrow st-color1"></i>
-                      <div class="additionalDownloadsContent"><span class="title">Secure Backup Cloud Module for Amazon S3</span><span class="cta st-color1">Download Now</span></div></a></li>
-                  <li><a href="onereg.html" class="st-color1"><i class="icon-download-arrow st-color1"></i>
-                      <div class="additionalDownloadsContent"><span class="title">Secure Backup Cloud Module for Amazon S3</span><span class="cta st-color1">Download Now</span></div></a></li>
-                  <li><a href="onereg.html" class="st-color1"><i class="icon-download-arrow st-color1"></i>
-                      <div class="additionalDownloadsContent"><span class="title">Secure Backup Cloud Module for Amazon S3</span><span class="cta st-color1">Download Now</span></div></a></li>
-                  <li><a href="onereg.html" class="st-color1"><i class="icon-download-arrow st-color1"></i>
-                      <div class="additionalDownloadsContent"><span class="title">Secure Backup Cloud Module for Amazon S3</span><span class="cta st-color1">Download Now</span></div></a></li>
-                  <li><a href="onereg.html" class="st-color1"><i class="icon-download-arrow st-color1"></i>
-                      <div class="additionalDownloadsContent"><span class="title">Secure Backup Cloud Module for Amazon S3</span><span class="cta st-color1">Download Now</span></div></a></li>
-                  <li><a href="onereg.html" class="st-color1"><i class="icon-download-arrow st-color1"></i>
-                      <div class="additionalDownloadsContent"><span class="title">Secure Backup Cloud Module for Amazon S3</span><span class="cta st-color1">Download Now</span></div></a></li>
-                </ul><a href="resources-downloads.html" class="moreDownloads">More Downloads<i class="icon-more-arrow st-color1"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="resources">
-        <div id="resourcesContent">
-          <h2>Looking for something specific, find it here.</h2>
-          <ul>
-            <li><a href="resources-articles.html">View All Articles</a></li>
-            <li><a href="resources-downloads.html">View All Downloads</a></li>
-            <li><a href="resources-videos.html">View All Videos</a></li>
+            </li>
           </ul>
-        </div>
-      </section>
-      <div id="videoModal">
-        <div id="videoModalPlayerContainer">
-          <div id="videoModalPlaylistContainer">
-            <ol class="vjs-playlist"></ol>
+        </nav>
+      </header>
+      <div id="micrositeWrapper">
+        <header id="nativeHeader">
+          <div id="nativeHeaderCompress">
+            <div id="nativeLogo"><a><img src="images/clientLogo.png"></a></div>
+            <div id="nativeSponsorContent">
+              <p class="nativeSponsorTagline"><span>Sponsored Content</span><i class="icon-info sponsorInfoClosedContent"></i></p>
+              <div class="nativeSponsorInfoPanel">
+                <p>Sponsored content is a special advertising section provided by IT vendors. It features educational content and interactive media.<i class="icon-closeButton"></i></p>
+              </div>
+            </div>
+            <div id="nativeMenus">
+              <nav id="nativeNavigation"><a id="nativeCollapsedNavigationText"><i class="icon-play"></i>
+                  <ul>
+                    <li data-submenu-id="submenu-1" class="open"><a href="http://preview.eng.techtarget.com:8080/searchCloudStorage/Nativeaddemo/resources/Hybrid-Cloud"><span>Hybrid Cloud</span><i class="icon-play"></i></a>
+                      <ul id="submenu-1">
+                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/Making-Cloud-Services-More-Transparent">Making Cloud Services More Transparent</a></li>
+                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/Making-Cloud-Services-More-Transparent">Making Cloud Services More Transparent</a></li>
+                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/Making-Cloud-Services-More-Transparent">Making Cloud Services More Transparent</a></li>
+                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/The-Trend-Toward-Hybrid-Cloud">The Trend Toward Hybrid Cloud</a></li>
+                      </ul>
+                    </li>
+                    <li data-submenu-id="submenu-2" class="open"><a href="http://preview.eng.techtarget.com:8080/searchCloudStorage/Nativeaddemo/resources/Convergence">Convergence<i class="icon-play"></i></a>
+                      <ul id="submenu-2">
+                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/The-Importance-of-Automation-for-Simplifying-Cloud-Migrations">The Importance of Automation for Simplifying Cloud Migrations</a></li>
+                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/How-DevOps-Can-Ease-the-Enterprise-Cloud-Experience">How DevOps Can Ease the Enterprise Cloud Experience</a></li>
+                      </ul>
+                    </li>
+                  </ul></a></nav>
+              <section id="nativeSocialShare"><i class="icon-share"></i>
+                <ul class="share-bar">
+                  <li title="Like/Share on Facebook" data-socialsite="facebook" class="share-bar-item share-bar-item-desktop socialMedia-facebook"><a href="#"><i data-icon="u" class="icon"></i></a></li>
+                  <li title="Share on Twitter" data-socialsite="twitter" class="share-bar-item share-bar-item-desktop socialMedia-twitter"><a href="#"><i data-icon="c" class="icon"></i></a></li>
+                  <li title="Share on LinkedIn" data-socialsite="linkedin" class="share-bar-item share-bar-item-desktop socialMedia-linkedin"><a href="#"><i data-icon="o" class="icon"></i></a></li>
+                  <li title="Email a Friend" class="share-bar-item share-bar-item-desktop contentTools-email"><a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?pubid=uxtechtarget&amp;url=http%3A%2F%2Fpreview.techtarget.com%3A8080%2Fibmbizconnect%3Fvgnextrefresh%3D1%233744114142001&amp;title=Managing+the+%22Smart+Enterprise%22&amp;email_template=TechTargetSearchSites&amp;ct=1"><i data-icon="n" class="icon"></i></a></li>
+                </ul>
+              </section>
+            </div>
           </div>
-          <div id="videoModalPlaylistInfoContainer">
-            <p><span id="slider-prev"></span><span class="videoInfo"></span><span id="slider-next"></span></p>
+        </header>
+        <section id="nativeTopicpageMain">
+          <div id="nativeTopicHeading">
+            <p class="nativeBreadcrumb"><span><i class="icon-home"></i></span><span><a>Home</a></span></p>
+            <h1 class="articleTitle">We finished our first sensor sweep of the neutral zone.</h1>
           </div>
-        </div>
+          <div id="nativeTopicBody">
+            <div class="microsite-summary-image">
+              <div class="imageWithCredit">
+                <p>Shutterstock</p><img src="http://cdn.ttgtmedia.com/customvisuals/cloud/cloud_001.jpg">
+              </div>
+            </div>
+            <div class="mainContent">
+              <div class="nativeAdContainer">
+                <!--<div id="div-gpt-ad-1452889091374-1">-->
+                <!-- <script type="text/javascript">-->
+                <!-- GPT(function () {-->
+                <!--  var slot = this.googletag.defineSlot('/3618/mcrst', [300,250], 'div-gpt-ad-1452889091374-1');-->
+                <!--  slot.setTargeting("mcrst", "nativeaddemoarticlepage"); // applies just to this slot-->
+                <!--  slot.display(); // convenience method extended by the proxied googletag object-->
+                <!-- });-->
+                <!-- </script>-->
+                <!-- <div id="google_ads_iframe_/3618/mcrst_0__container__" style="border: 0pt none;">-->
+                <!-- <iframe id="google_ads_iframe_/3618/mcrst_0" title="3rd party ad content" name="google_ads_iframe_/3618/mcrst_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px; vertical-align: bottom;"></iframe></div>-->
+                <!-- <iframe id="google_ads_iframe_/3618/mcrst_0__hidden__" title="" name="google_ads_iframe_/3618/mcrst_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe>-->
+                <!-- </div>-->
+              </div>
+              <p>Fate protects fools, little children and ships named Enterprise. A lot of things can change in twelve years, Admiral. Wouldn't that bring about chaos? I'd like to think that I haven't changed those things, sir. I've had twelve years to think about it. And if I had it to do over again, I would have grabbed the phaser and pointed it at you instead of them. Well, that's certainly good to know. This should be interesting.</p>
+              <div class="nativeArticleListing">
+                <ul>
+                  <li><a><img src="http://placehold.it/80x66">
+                      <div>Squid quinoa wayfarers, readymade venmo Squid quinoa wayfarers, readymade venmo  Squid quinoa wayfarers, readymade venmo </div></a></li>
+                  <li><a><img src="http://placehold.it/80x66">
+                      <div>Helvetica schlitz mlkshk lomo</div></a></li>
+                  <li><a><img src="http://placehold.it/80x66">
+                      <div>Plaid sustainable paleo williamsburg photo booth brunch.</div></a></li>
+                  <li><a><img src="http://placehold.it/80x66">
+                      <div>Wayfarers retro bushwick whatever 8-bit.</div></a></li>
+                  <li><a><img src="http://placehold.it/80x66">
+                      <div>Mumblecore jean shorts kinfolk austin.</div></a></li>
+                  <li><a><img src="http://placehold.it/80x66">
+                      <div>Retro try-hard cray kitsch</div></a></li>
+                  <li><a><img src="http://placehold.it/80x66">
+                      <div>Squid quinoa wayfarers, readymade venmo </div></a></li>
+                  <li><a><img src="http://placehold.it/80x66">
+                      <div>Helvetica schlitz mlkshk lomo</div></a></li>
+                </ul><a class="nativeButton">View More Articles<i class="icon-play"></i></a>
+              </div>
+            </div>
+          </div>
+          <div id="nativeTopicRight">
+            <div id="network" class="sideContent">
+              <h4>Also in Our Network </h4>
+              <ul>
+                <li><a>
+                    <h5>Cloud Security</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </p></a></li>
+                <li><a>
+                    <h5>Cloud Security</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </p></a></li>
+                <li><a>
+                    <h5>Cloud Security</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </p></a></li>
+                <li><a>
+                    <h5>Cloud Security</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor       li </p></a></li>
+                <li><a>
+                    <h5>Cloud Security</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </p></a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
-      <footer>
-        <div id="footerContainer">
-          <div class="footerLeft">
-            <p>Sponsored by:</p>
-            <ul class="sponsorLogos">
-              <li><a><img src="images/clientLogo1.png"></a></li>
-              <li><a><img src="images/clientLogo2.png"></a></li>
-            </ul>
-          </div>
-          <div class="footerRight"><img src="images/ttgt.png" class="ttLogo">
-            <ul class="footerLinks">
-              <li><a>Privacy Policy</a></li>
-              <li><a>Contact</a></li>
-              <li>
-                <p>&copy; 2016 TechTarget</p>
+      <section class="latest-wrapper">
+        <nav class="latest-nav-wrapper">
+          <h2>Latest TechTarget <span class="latest-title">network coverage</span></h2>
+          <ul class="latest-nav">
+            <!--is this a set number of items? 
+            -->
+            <li><a href="#" data-item="1" class="latest-nav-item selected">Solid State Storage<i data-icon="5" class="icon mobile-icon"></i><i data-icon="A" class="icon desktop-icon"></i></a></li>
+            <li><a href="#" data-item="2" class="latest-nav-item">Virtual Storage<i data-icon="5" class="icon mobile-icon"></i><i data-icon="A" class="icon desktop-icon"></i></a></li>
+            <li><a href="#" data-item="3" class="latest-nav-item">Disaster Recovery<i data-icon="5" class="icon mobile-icon"></i><i data-icon="A" class="icon desktop-icon"></i></a></li>
+            <li><a href="#" data-item="4" class="latest-nav-item">Data Backup<i data-icon="5" class="icon mobile-icon"></i><i data-icon="A" class="icon desktop-icon"></i></a></li>
+            <li><a href="#" data-item="5" class="latest-nav-item">Storage UK<i data-icon="5" class="icon mobile-icon"></i><i data-icon="A" class="icon desktop-icon"></i></a></li>
+            <li><a href="#" data-item="6" class="latest-nav-item">Storage channel<i data-icon="5" class="icon mobile-icon"></i><i data-icon="A" class="icon desktop-icon"></i></a></li>
+          </ul>
+        </nav><span class="latest-nav-mask before-mask"></span><span class="latest-nav-mask after-mask"></span>
+        <div class="latest-body">
+          <div data-item="1" class="latest-content">
+            <h2><a href="#">Search<span class="latest-category">Solid State Storage</span></a></h2>
+            <ul>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Micron ships first MLC PCIe flash card and does some other totally cool things that necessitate this being a lot of lines long!</a></h3>
+                <p>Micron unveiled its P420m MLC PCIe flash card in 2.5-inch (350 GB, 700 GB) and half-height, half-length...</p>
+              </li>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">QLogic Mt. Rainier FabricCache pools PCIe flash cache</a></h3>
+                <p>The first product based on QLogic Mt. Rainier technology, the FabricCache QLE10000 HBA...</p>
+              </li>
+              <li class="hide-for-small"><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Nimbus adds management, analytics for Gemini all-flash array</a></h3>
+                <p>Nimbus Data upgrades HALO storage operating system for Gemini all-flash array, adding system analytics, open API...</p>
               </li>
             </ul>
+          </div>
+          <div data-item="2" class="latest-content">
+            <h2>Search<span class="latest-category">Virtual Storage</span></h2>
+            <ul>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Micron ships first MLC PCIe flash card</a></h3>
+                <p>Micron unveiled its P420m MLC PCIe flash card in 2.5-inch (350 GB, 700 GB) and half-height, half-length...</p>
+              </li>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">QLogic Mt. Rainier FabricCache pools PCIe flash cache</a></h3>
+                <p>The first product based on QLogic Mt. Rainier technology, the FabricCache QLE10000 HBA...</p>
+              </li>
+              <li class="hide-for-small"><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Nimbus adds management, analytics for Gemini all-flash array </a></h3>
+                <p>Nimbus Data upgrades HALO storage operating system for Gemini all-flash array, adding system analytics, open API...</p>
+              </li>
+            </ul>
+          </div>
+          <div data-item="3" class="latest-content">
+            <h2>Search<span class="latest-category">Disaster Recovery</span></h2>
+            <ul>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Micron ships first MLC PCIe flash card</a></h3>
+                <p>Micron unveiled its P420m MLC PCIe flash card in 2.5-inch (350 GB, 700 GB) and half-height, half-length...</p>
+              </li>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">QLogic Mt. Rainier FabricCache pools PCIe flash cache</a></h3>
+                <p>The first product based on QLogic Mt. Rainier technology, the FabricCache QLE10000 HBA...</p>
+              </li>
+              <li class="hide-for-small"><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Nimbus adds management, analytics for Gemini all-flash array </a></h3>
+                <p>Nimbus Data upgrades HALO storage operating system for Gemini all-flash array, adding system analytics, open API...</p>
+              </li>
+            </ul>
+          </div>
+          <div data-item="4" class="latest-content">
+            <h2>Search<span class="latest-category">Data Backup</span></h2>
+            <ul>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Micron ships first MLC PCIe flash card</a></h3>
+                <p>Micron unveiled its P420m MLC PCIe flash card in 2.5-inch (350 GB, 700 GB) and half-height, half-length...</p>
+              </li>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">QLogic Mt. Rainier FabricCache pools PCIe flash cache</a></h3>
+                <p>The first product based on QLogic Mt. Rainier technology, the FabricCache QLE10000 HBA...</p>
+              </li>
+              <li class="hide-for-small"><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Nimbus adds management, analytics for Gemini all-flash array </a></h3>
+                <p>Nimbus Data upgrades HALO storage operating system for Gemini all-flash array, adding system analytics, open API...</p>
+              </li>
+            </ul>
+          </div>
+          <div data-item="5" class="latest-content">
+            <h2>Search<span class="latest-category">Storage UK</span></h2>
+            <ul>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Micron ships first MLC PCIe flash card</a></h3>
+                <p>Micron unveiled its P420m MLC PCIe flash card in 2.5-inch (350 GB, 700 GB) and half-height, half-length...</p>
+              </li>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">QLogic Mt. Rainier FabricCache pools PCIe flash cache</a></h3>
+                <p>The first product based on QLogic Mt. Rainier technology, the FabricCache QLE10000 HBA...</p>
+              </li>
+              <li class="hide-for-small"><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Nimbus adds management, analytics for Gemini all-flash array </a></h3>
+                <p>Nimbus Data upgrades HALO storage operating system for Gemini all-flash array, adding system analytics, open API...</p>
+              </li>
+            </ul>
+          </div>
+          <div data-item="6" class="latest-content">
+            <h2>Search<span class="latest-category">Storage channel</span></h2>
+            <ul>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Micron ships first MLC PCIe flash card</a></h3>
+                <p>Micron unveiled its P420m MLC PCIe flash card in 2.5-inch (350 GB, 700 GB) and half-height, half-length...</p>
+              </li>
+              <li><i data-icon="2" class="icon"></i>
+                <h3><a href="#">QLogic Mt. Rainier FabricCache pools PCIe flash cache</a></h3>
+                <p>The first product based on QLogic Mt. Rainier technology, the FabricCache QLE10000 HBA...</p>
+              </li>
+              <li class="hide-for-small"><i data-icon="2" class="icon"></i>
+                <h3><a href="#">Nimbus adds management, analytics for Gemini all-flash array </a></h3>
+                <p>Nimbus Data upgrades HALO storage operating system for Gemini all-flash array, adding system analytics, open API...</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="content-left">
+          <div class="column column-logo"><a href="#">tech target logo</a></div>
+        </div>
+        <div class="content-center">
+          <ul class="column">
+            <li class="footer-item footer-item-col-1 footer-item-row-1"><a href="#">About Us</a></li>
+            <li class="footer-item footer-item-col-1 footer-item-row-2"><a href="#">Contact Us</a></li>
+            <li class="footer-item footer-item-col-1 footer-item-row-3"><a href="#">Site Index</a></li>
+            <li class="footer-item footer-item-col-1 footer-item-row-4"><a href="#">Privacy Policy</a></li>
+          </ul>
+          <ul class="column">
+            <li class="footer-item footer-item-col-1 footer-item-row-5"><a href="#">Advertisers</a></li>
+            <li class="footer-item footer-item-col-1 footer-item-row-6"><a href="#">Business Partners</a></li>
+            <li class="footer-item footer-item-col-2 footer-item-row-1"><a href="#">Events</a></li>
+            <li class="footer-item footer-item-col-2 footer-item-row-2"><a href="#">Media Kit</a></li>
+          </ul>
+          <ul class="column column-mobile-hidden">
+            <li class="footer-item footer-item-col-2 footer-item-row-3"><a href="#">Corporate Site</a></li>
+            <li class="footer-item footer-item-col-2 footer-item-row-4"><a href="#">Reprints</a></li>
+            <li class="footer-item footer-item-col-2 footer-item-row-5"><a href="#">Archive</a></li>
+            <li class="footer-item footer-item-col-2 footer-item-row-6"><a href="#">Site Map</a></li>
+          </ul>
+        </div>
+        <div class="content-right">
+          <div class="column column-legal">
+            <p class="footer-legal">All Rights Reserved,<span>copyright 2000 - 2013, TechTarget</span></p>
           </div>
         </div>
       </footer>
+      <!--JS Libraries 
+      -->
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery-ui-1.10.3.custom.min.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery.jscrollpane.min.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery.mousewheel.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery.scrollTo.min.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery.hammer.min.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery.colorbox-min.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/responsive-carousel.js"></script>
+      <script>
+        Modernizr.load({
+        test: Modernizr.input.placeholder,
+        nope: [
+        'css/libs/placeholder_polyfill.min.css',
+        'js/libs/placeholder_polyfill.jquery.min.js'
+        ]
+        });
+      </script>
+      <!--
+      Custom JS 
+      
+      -->
+      <script src="javascript/jquery.menu-aim.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/TT.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/utils.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/image.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/ads.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/header.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/sidebars.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/refinery.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/guide_collapse.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/dig_deeper.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/tabs.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/search_results.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/latest.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/homepage.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/infotype.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/topics.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/image_credits.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/image_overlay.js"></script>
+      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/comments.js"></script>
     </div>
-    <script src="javascript/jquery.menu-aim.js"></script>
-    <script src="//players.brightcove.net/1660622130/SJJxTCbc_default/index.min.js"></script>
-    <script src="http://cdn.ttgtmedia.com/rms/ux/javascript/microsite/videojs.ga.videocloud.js"></script>
+    <div class="image-overlay">
+      <div class="image-overlay-img"></div>
+      <div class="image-overlay-close">Close</div>
+    </div>
+    <!--
+    <script src='//172.16.0.7:3000/socket.io/socket.io.js'></script>
+    <script>var ___socket___ = io.connect('http://172.16.0.7:3000');</script>
+    <script src='//172.16.0.7:3001/client/browser-sync-client.min.js'></script>
+    -->
   </body>
 </html>

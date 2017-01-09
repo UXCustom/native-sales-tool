@@ -5,24 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TechTarget</title>
-    <!--if lte IE 7script(src='http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/icomoon_ie7.js')
+    <!--if lte IE 7script(src='js/libs/icomoon_ie7.js')
     -->
     <script type="text/javascript" src="http://fast.fonts.net/jsapi/124d48dd-e515-4302-8bfb-1d5c1e3da916.js"></script>
-    <link rel="stylesheet" href="http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/normalize.css">
-    <link rel="stylesheet" href="http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/icomoon.css">
-    <link rel="stylesheet" href="http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/jquery.jscrollpane.css">
-    <link rel="stylesheet" href="http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/jquery-ui-1.10.3.custom.min.css">
-    <link rel="stylesheet" href="http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/responsive-carousel.css">
-    <link rel="stylesheet" href="http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/responsive-carousel.slide.css">
+    <link rel="stylesheet" href="css/libs/normalize.css">
+    <link rel="stylesheet" href="css/libs/icomoon.css">
+    <link rel="stylesheet" href="css/libs/jquery.jscrollpane.css">
+    <link rel="stylesheet" href="css/libs/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="css/libs/responsive-carousel.css">
+    <link rel="stylesheet" href="css/libs/responsive-carousel.slide.css">
     <link rel="stylesheet" href="http://media.eng.ttgtmedia.com/rms/ux/responsive/css/main.css?v=6.32-SNAPSHOT">
-    <!--if lte IE 7link(rel='stylesheet', href='http://cdn.ttgtmedia.com/microsites/ttgtShell/css/ie7.css')
+    <!--if lte IE 7link(rel='stylesheet', href='../css/ie7.css')
     -->
-    <!--if IE 8link(rel='stylesheet', href='http://cdn.ttgtmedia.com/microsites/ttgtShell/css/ie8.css')
+    <!--if IE 8link(rel='stylesheet', href='../css/ie8.css')
     -->
-    <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/respond.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/modernizr.custom.50545.js"></script>
-    <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery-1.10.1.min.js"></script>
-    <script src="http://cdn.ttgtmedia.com/rms/ux/responsive/js/responsive.min.js?v=6.43"></script>
+    <script src="js/libs/respond.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/libs/modernizr.custom.50545.js"></script>
+    <script src="js/libs/jquery-1.10.1.min.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="144×144" href="/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="114×114" href="/apple-touch-icon-114x114.png">
@@ -36,43 +35,12 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="javascript/jgestures.min.js"></script>
     <script src="javascript/script-responsive.js"></script>
-    <script type="text/javascript" src="javascript/salesTool.js"></script>
+    <script src="javascript/video.js"></script>
   </head>
   <body>
-    <div id="editWindow">
-      <form id="demo-email-settings-form" action="mailto:cguarrera@techtarget.com?subject=myform_submission" enctype="text/plain">
-        <div class="demo-header"><img src="http://cdn.ttgtmedia.com/rms/ux/responsive/img/nav_logo@2x.png" alt="TechTarget">
-          <p class="demo-header-title">Embedded Sites Demo</p>
-        </div>
-        <div class="demo-site-nav hideNav">
-          <ul class="demo-site-nav-list">
-            <li data-id="1" class="demo-site-nav-list-item">Article</li>
-            <li data-id="2" class="demo-site-nav-list-item">Embedded - Center</li>
-            <li data-id="3" class="demo-site-nav-list-item">Embedded - Dark</li>
-            <li data-id="4" class="demo-site-nav-list-item">Embedded - Light</li>
-            <li data-id="4" class="demo-site-nav-list-item selected">Native Advertising</li>
-          </ul><i data-icon="5" class="icon icon-arrow-down"></i>
-        </div>
-        <div class="demo-settings">
-          <p>Select A Color
-            <select id="colorChoice">
-              <option value="White" selected="selected">White</option>
-              <option value="Black">Black</option>
-            </select>
-          </p>
-        </div>
-        <div class="demo-footer"><a title="Email These Settings" onclick="javascript:getSettings();" class="demo-footer-button demo-button-email">Email</a>
-          <button title="Download PDF" onclick="javascript:generatePDF();" class="demo-footer-button demo-button-pdf">PDF</button>
-          <button title="Reset Settings" class="demo-footer-button demo-button-reset reset">Reset</button>
-          <div title="Close" class="pull">
-            <p></p>
-          </div>
-        </div>
-      </form>
-    </div>
     <div class="site-container">
       <header class="header">
-        <button class="nav-toggle"><i data-icon="9" class="icon"></i></button><a href="/" class="header-logo"><img src="http://cdn.ttgtmedia.com/microsites/ttgtShell/img/nav_logotype.png" alt="TechTarget" class="header-logo-mobile replace_2x"><img src="http://cdn.ttgtmedia.com/microsites/ttgtShell/img/nav_logo.png" alt="TechTarget" class="header-logo-desktop replace_2x"><img src="http://cdn.ttgtmedia.com/microsites/ttgtShell/img/nav_logo.png" alt="TechTarget" class="header-logo-small replace_2x"></a>
+        <button class="nav-toggle"><i data-icon="9" class="icon"></i></button><a href="/" class="header-logo"><img src="img/nav_logotype.png" alt="TechTarget" class="header-logo-mobile replace_2x"><img src="img/nav_logo.png" alt="TechTarget" class="header-logo-desktop replace_2x"><img src="img/nav_logo.png" alt="TechTarget" class="header-logo-small replace_2x"></a>
         <button class="header-search-toggle"><i data-icon="g" class="icon"></i></button>
         <form class="header-search">
           <label for="header-search-input" class="visuallyhidden">Search TechTarget</label>
@@ -196,23 +164,15 @@
               </div>
             </div>
             <div id="nativeMenus">
-              <nav id="nativeNavigation"><a id="nativeCollapsedNavigationText"><i class="icon-play"></i>
-                  <ul>
-                    <li data-submenu-id="submenu-1" class="open"><a href="http://preview.eng.techtarget.com:8080/searchCloudStorage/Nativeaddemo/resources/Hybrid-Cloud"><span>Hybrid Cloud</span><i class="icon-play"></i></a>
-                      <ul id="submenu-1">
-                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/Making-Cloud-Services-More-Transparent">Making Cloud Services More Transparent</a></li>
-                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/Making-Cloud-Services-More-Transparent">Making Cloud Services More Transparent</a></li>
-                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/Making-Cloud-Services-More-Transparent">Making Cloud Services More Transparent</a></li>
-                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/The-Trend-Toward-Hybrid-Cloud">The Trend Toward Hybrid Cloud</a></li>
-                      </ul>
-                    </li>
-                    <li data-submenu-id="submenu-2" class="open"><a href="http://preview.eng.techtarget.com:8080/searchCloudStorage/Nativeaddemo/resources/Convergence">Convergence<i class="icon-play"></i></a>
-                      <ul id="submenu-2">
-                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/The-Importance-of-Automation-for-Simplifying-Cloud-Migrations">The Importance of Automation for Simplifying Cloud Migrations</a></li>
-                        <li><a href="http://searchcloudstorage.eng.techtarget.com/Nativeaddemo/How-DevOps-Can-Ease-the-Enterprise-Cloud-Experience">How DevOps Can Ease the Enterprise Cloud Experience</a></li>
-                      </ul>
-                    </li>
-                  </ul></a></nav>
+              <nav id="nativeNavigation"><a id="nativeCollapsedNavigationText"><i class="icon-play"></i></a>
+                <ul>
+                  <li><a href="#">Cloud and Data Management</a></li>
+                  <li><a href="#">Data Center Infrastructure</a></li>
+                  <li><a href="#">Big Data</a></li>
+                  <li><a href="#">Cloud Computing</a></li>
+                  <li><a href="#">Mobility in the Enterprise</a></li>
+                </ul>
+              </nav>
               <section id="nativeSocialShare"><i class="icon-share"></i>
                 <ul class="share-bar">
                   <li title="Like/Share on Facebook" data-socialsite="facebook" class="share-bar-item share-bar-item-desktop socialMedia-facebook"><a href="#"><i data-icon="u" class="icon"></i></a></li>
@@ -224,119 +184,69 @@
             </div>
           </div>
         </header>
-        <section id="nativeArticlepageMain">
-          <div id="nativeArticleHeading" class="clearfix">
-            <p class="nativeBreadcrumb"><span><i class="icon-home"></i></span><span><a>Home</a></span><span>> <a class="articleTopicName">Etsy asymmetrical butcher hashtag</a></span></p>
-            <h1 class="articleTitle">We finished our first sensor sweep of the neutral zone.</h1>
-            <div class="main-article-author">
-              <div class="image-resize"><img src="http://cdn.ttgtmedia.com/rms/onlineImages/horwitz_lauren-B.jpg"></div>
-            </div>
-            <p class="articleAuthor">by <a><span>Four dollar toast</span></a></p>
-            <p class="articleAuthorCompany">IBM</p>
-          </div>
-          <div id="nativeArticleBody">
-            <div class="mainContent">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis laudantium quibusdam delectus, suscipit quis recusandae est numquam impedit tempora eaque beatae vel velit, eveniet, aliquam quaerat obcaecati voluptas non. Modi.</p>
-              <div class="nativeAdContainer">
-                <!--<div id="div-gpt-ad-1452889091374-1">-->
-                <!-- <script type="text/javascript">-->
-                <!-- GPT(function () {-->
-                <!--  var slot = this.googletag.defineSlot('/3618/mcrst', [300,250], 'div-gpt-ad-1452889091374-1');-->
-                <!--  slot.setTargeting("mcrst", "nativeaddemoarticlepage"); // applies just to this slot-->
-                <!--  slot.display(); // convenience method extended by the proxied googletag object-->
-                <!-- });-->
-                <!-- </script>-->
-                <!-- <div id="google_ads_iframe_/3618/mcrst_0__container__" style="border: 0pt none;">-->
-                <!-- <iframe id="google_ads_iframe_/3618/mcrst_0" title="3rd party ad content" name="google_ads_iframe_/3618/mcrst_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px; vertical-align: bottom;"></iframe></div>-->
-                <!-- <iframe id="google_ads_iframe_/3618/mcrst_0__hidden__" title="" name="google_ads_iframe_/3618/mcrst_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe>-->
-                <!-- </div>-->
-              </div>
-              <p>We could cause a diplomatic crisis. Take the ship into the Neutral Zone How long can two people talk about nothing? The Enterprise computer system is controlled by three primary main processor cores, cross-linked with a redundant melacortz ramistat, fourteen kiloquad interface modules. Fear is the true enemy, the only enemy.</p>
-              <ol>
-                <li>Four dollar toast</li>
-                <li>Chillwave street</li>
-                <li>Kale chips DIY</li>
-              </ol>
-              <p>Messenger bag before they sold out slow-carb twee franzen, echo park hashtag dreamcatcher post-ironic kogi fingerstache gochujang ennui wayfarers.</p>
+        <section id="nativeHomepageMain">
+          <div id="nativeHomepageBody">
+            <div class="nativeAdContainer hasAd"></div>
+            <h1>Single-origin coffee roof party williamsburg</h1>
+            <p class="description">IPhone umami brooklyn, stumptown disrupt williamsburg brunch single-origin coffee. Paleo small batch mixtape PBR&B sriracha chia, beard hashtag distillery keytar vice. Artisan tattooed affogato, 3 wolf moon tofu keytar PBR&B tote bag leggings microdosing DIY gentrify forage semiotics.</p>
+            <div class="nativeArticleListing">
+              <h3>Taxidermy vice pug</h3>
               <ul>
-                <li>Beer Me!</li>
-                <li>Asymmetrical tote bag</li>
-                <li>How quaint.</li>
-              </ul>
-              <p>Percolator filter breve bar, white aromatic blue mountain froth espresso redeye. Extra, cup redeye, kopi-luwak latte beans crema steamed at con panna. Cappuccino, bar, wings sweet est cream and dripper. Robust wings aftertaste dark siphon seasonal, turkish ristretto aftertaste sugar black.</p>
-              <div class="nativeAdContainer"></div>
-              <blockquote>Proper configuration for virtual desktop infrastructure (VDI) is probably more important than any application</blockquote>
-              <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
-              <p>Founders value proposition leverage non-disclosure agreement advisor rockstar. Focus supply chain angel investor freemium startup innovator niche market channels strategy.</p>
-              <div id="videoPlayerContainer">
-                <video id="video-1" data-account="1660622130" data-list-id="4234547961001" data-player="2483e45a-7074-4c6a-8470-0e4a53b3bef8" data-embed="default" controls="" class="video-js"></video>
-                <div id="heroPlaylistContainer">
-                  <ol class="vjs-playlist">
-                    <li class="removeLI"></li>
-                  </ol>
-                </div>
-                <div id="heroPlaylistInfoContainer">
-                  <p><span id="slider-prev"></span><span class="videoInfo"></span><span id="slider-next"></span></p>
-                </div>
-                <script src="//players.brightcove.net/1660622130/2483e45a-7074-4c6a-8470-0e4a53b3bef8_default/index.min.js"></script>
-                <script src="http://cdn.ttgtmedia.com/rms/ux/javascript/microsite/videojs.ga.videocloud.js"></script>
-                <script src="javascript/video.js"></script>
-              </div>
-              <p>Gotham's been good to our family, but the city's been suffering. People less fortunate than us have been enduring very hard times. So we built a new, cheap, public transportation system to unite the city. And at the center, Wayne tower.</p><img src="images/imageforarticle.png" width="545">
-              <div class="nativeAdContainer"></div>
-              <p>Post-ironic irony lo-fi, four loko mlkshk iPhone mustache listicle readymade kitsch mixtape sartorial. Mixtape tote bag lomo occupy art party tousled, cliche celiac drinking vinegar dreamcatcher 3 wolf moon kitsch raw denim pork belly mlkshk. Taxidermy single-origin coffee fap pickled etsy, 8-bit church-key microdosing. Shabby chic hammock put a bird on it semiotics cronut, chartreuse skateboard cardigan. Readymade artisan art party, hella sartorial everyday carry four dollar toast venmo you probably haven't heard of them poutine gentrify keytar williamsburg drinking vinegar. Wolf cardigan pop-up pour-over 3 wolf moon austin pitchfork, whatever before they sold out squid PBR&B mustache. Twee flexitarian waistcoat PBR&B meh.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis laudantium quibusdam delectus, suscipit quis recusandae est numquam impedit tempora eaque beatae vel velit, eveniet, aliquam quaerat obcaecati voluptas non. Modi.</p>
-              <p>We could cause a diplomatic crisis. Take the ship into the Neutral Zone How long can two people talk about nothing? The Enterprise computer system is controlled by three primary main processor cores, cross-linked with a redundant melacortz ramistat, fourteen kiloquad interface modules. Fear is the true enemy, the only enemy.</p>
-              <p>Messenger bag before they sold out slow-carb twee franzen, echo park hashtag dreamcatcher post-ironic kogi fingerstache gochujang ennui wayfarers. </p>
-              <figure class="inlineSplash">
-                <div class="inlineSplashContainer">
-                  <div class="inlineSplashGraphic"></div>
-                  <div class="inlineSplashContent">
-                    <p class="inlineSplashTitle">Accelerate Your Infrastructure:</p>
-                    <p class="inlineSplashDescription">Can Converged Infrastructure and Flash help deliver on its promise?</p><a class="inlineSplashButton">Download Now</a>
-                  </div>
-                </div>
-              </figure>
-              <p>Percolator filter breve bar, white aromatic blue mountain froth espresso redeye. Extra, cup redeye, kopi-luwak latte beans crema steamed at con panna. Cappuccino, bar, wings sweet est cream and dripper. Robust wings aftertaste dark siphon seasonal, turkish ristretto aftertaste sugar black.</p>
-              <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
-              <p>Founders value proposition leverage non-disclosure agreement advisor rockstar. Focus supply chain angel investor freemium startup innovator niche market channels strategy.</p>
-              <p>Gotham's been good to our family, but the city's been suffering. People less fortunate than us have been enduring very hard times. So we built a new, cheap, public transportation system to unite the city. And at the center, Wayne tower.</p>
-              <p>Post-ironic irony lo-fi, four loko mlkshk iPhone mustache listicle readymade kitsch mixtape sartorial. Mixtape tote bag lomo occupy art party tousled, cliche celiac drinking vinegar dreamcatcher 3 wolf moon kitsch raw denim pork belly mlkshk. Taxidermy single-origin coffee fap pickled etsy, 8-bit church-key microdosing. Shabby chic hammock put a bird on it semiotics cronut, chartreuse skateboard cardigan. Readymade artisan art party, hella sartorial everyday carry four dollar toast venmo you probably haven't heard of them poutine gentrify keytar williamsburg drinking vinegar. Wolf cardigan pop-up pour-over 3 wolf moon austin pitchfork, whatever before they sold out squid PBR&B mustache. Twee flexitarian waistcoat PBR&B meh.</p>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Mumblecore jean shorts kinfolk austin.</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Williamsburg hoodie cornhole, ethical artisan helvetica</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Photo booth salvia cronut vice four loko fanny pack bitters bespoke</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Stumptown 3 wolf moon YOLO 90's.</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Hella skateboard stumptown, readymade Franzen authentic crucifix semiotics iPhone cold-pressed retro </div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Polaroid umami tofu iPhone</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Food truck direct trade normcore tattooed 3 wolf moon</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Kickstarter normcore austin, vinyl narwhal ethical retro </div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Etsy narwhal cardigan chambray offal PBR&B</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Authentic disrupt four loko leggings bicycle rights </div></a></li>
+              </ul><a class="nativeButton">View More Articles<i class="icon-play"></i></a>
             </div>
-          </div>
-          <div id="nativeArticleRight">
-            <div class="microsite-summary-image">
-              <div class="imageWithCredit">
-                <p>Shutterstock</p><img src="http://cdn.ttgtmedia.com/customvisuals/cloud/cloud_001.jpg">
-              </div>
-            </div>
-            <div id="network" class="sideContent">
-              <h4>Also in Our Network </h4>
+            <div class="nativeArticleListing">
+              <h3>Everyday carry lumbersexual selfies </h3>
               <ul>
-                <li><a>
-                    <h5>Cloud Security</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </p></a></li>
-                <li><a>
-                    <h5>Cloud Storage</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </p></a></li>
-              </ul>
-            </div>
-            <div id="vendor-resources-bar" class="sideContent">
-              <div class="micrositeResourcesBarHeader">Vendor</div>
-              <ul class="micrositeResourcesBarList">
-                <li class="micrositeResourcesBarItem"><a>Vegan microdosing umami</a><span>Company 1</span></li>
-                <li class="micrositeResourcesBarItem"><a>Dreamcatcher 8-bit keffiyeh, kombucha art party trust fund helvetica bespoke</a><span>Company 2</span></li>
-                <li class="micrositeResourcesBarItem"><a>Taxidermy tilde cardigan franzen ramps humblebrag banjo</a><span>Company 3</span></li>
-              </ul>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Squid quinoa wayfarers, readymade venmo </div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Helvetica schlitz mlkshk lomo</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Plaid sustainable paleo williamsburg photo booth brunch.</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Wayfarers retro bushwick whatever 8-bit.</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Mumblecore jean shorts kinfolk austin.</div></a></li>
+                <li><a><img src="http://placehold.it/88x60">
+                    <div>Retro try-hard cray kitsch</div></a></li>
+              </ul><a class="nativeButton">View More Articles<i class="icon-play"></i></a>
             </div>
           </div>
         </section>
-        <aside id="overlay">
-          <div id="overlayHeading">
-            <p>Recommended for you</p><a>&times;</a>
+        <section class="nativeRelatedSite">
+          <div class="nativeRelatedSiteBody">
+            <h1>YOLO selfies direct trade</h1>
+            <p class="description">Ugh etsy banh mi pickled pour-over selvage pabst. Craft beer keffiyeh 90's, VHS wayfarers quinoa gastropub four dollar toast williamsburg vegan plaid mustache flannel fap. Paleo small batch mixtape PBR&B sriracha chia.</p>
+            <ul class="relatedArticleListing">
+              <li><a><i class="icon-play"></i>
+                  <div>Trust fund pinterest meditation</div></a></li>
+              <li><a><i class="icon-play"></i>
+                  <div>Biodiesel DIY trust fund mustache </div></a></li>
+              <li><a><i class="icon-play"></i>
+                  <div>Gochujang salvia yr hammock</div></a></li>
+            </ul>
           </div>
-          <div id="overlayContent"><a href="">Flexible, scalable Web-based apps get high marks from education CIO</a></div>
-        </aside>
+        </section>
       </div>
       <section class="latest-wrapper">
         <nav class="latest-nav-wrapper">
@@ -489,13 +399,13 @@
       </footer>
       <!--JS Libraries 
       -->
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery-ui-1.10.3.custom.min.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery.jscrollpane.min.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery.mousewheel.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery.scrollTo.min.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery.hammer.min.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery.colorbox-min.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/responsive-carousel.js"></script>
+      <script src="js/libs/jquery-ui-1.10.3.custom.min.js"></script>
+      <script src="js/libs/jquery.jscrollpane.min.js"></script>
+      <script src="js/libs/jquery.mousewheel.js"></script>
+      <script src="js/libs/jquery.scrollTo.min.js"></script>
+      <script src="js/libs/jquery.hammer.min.js"></script>
+      <script src="js/libs/jquery.colorbox-min.js"></script>
+      <script src="js/libs/responsive-carousel.js"></script>
       <script>
         Modernizr.load({
         test: Modernizr.input.placeholder,
@@ -509,25 +419,24 @@
       Custom JS 
       
       -->
-      <script src="javascript/jquery.menu-aim.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/TT.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/utils.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/image.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/ads.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/header.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/sidebars.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/refinery.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/guide_collapse.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/dig_deeper.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/tabs.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/search_results.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/latest.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/homepage.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/infotype.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/topics.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/image_credits.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/image_overlay.js"></script>
-      <script src="http://cdn.ttgtmedia.com/microsites/ttgtShell/js/comments.js"></script>
+      <script src="js/TT.js"></script>
+      <script src="js/utils.js"></script>
+      <script src="js/image.js"></script>
+      <script src="js/ads.js"></script>
+      <script src="js/header.js"></script>
+      <script src="js/sidebars.js"></script>
+      <script src="js/refinery.js"></script>
+      <script src="js/guide_collapse.js"></script>
+      <script src="js/dig_deeper.js"></script>
+      <script src="js/tabs.js"></script>
+      <script src="js/search_results.js"></script>
+      <script src="js/latest.js"></script>
+      <script src="js/homepage.js"></script>
+      <script src="js/infotype.js"></script>
+      <script src="js/topics.js"></script>
+      <script src="js/image_credits.js"></script>
+      <script src="js/image_overlay.js"></script>
+      <script src="js/comments.js"></script>
     </div>
     <div class="image-overlay">
       <div class="image-overlay-img"></div>

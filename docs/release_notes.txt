@@ -1,13 +1,13 @@
-Product: standAlone
-Release version: 1.0
+Product: nativeSite
+Release version: 1.1
 Author: Noah Glushien <nglushien@techtarget.com>
-Last Updated: 2016-07-25
-Created: 2015-06-12
-
+Last Updated: 2016-09-15
+Created: 2016-07-19
 Project Manager:
   Dan Ryan <dryan@techtarget.com>
 Developers:
   Noah Glushien <nglushien@techtarget.com>
+  Dave Liu <dliu@techtarget.com>
 
 QA resources:
   Dick Kennedy <dkennedy@techtarget.com>
@@ -16,4 +16,4 @@ Release Engineer:
   Mike Deneault <mdeneault@techtarget.com>
 
 Changes in this release:
-* CUSTOM-766 Fixed issue with playlist not displaying
+* CUSTOM-774 - Fixed big play button for video players

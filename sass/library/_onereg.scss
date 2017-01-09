@@ -1,46 +1,78 @@
-#bprAbstractOneReg {
+#bprAbstractOneReg .site-container .micrositeSponsoredContentHeader {
+  display: none;
+}
+#bprAbstractOneReg .main-content{
+  margin-top: 60px;  
+}
+#bprAbstractOneReg .main-content #micrositeContainer .micrositeOneReg-section{
+  padding-top: 40px;
+}
+#bprAbstractOneReg .main-content #micrositeContainer #nativeHeader{
+  position: relative;
+  top:0;
+}
 
-  #articleHeader #articleHeadline .hamburger, #articleHeader #articleHeadline a.socialButton {
-    display: none;
-  }
+// Height of logo will fluctuate, top margin is MANUALLY set to vertically center within 60px of header space. Also, the width of the logo effects other elements so it should be defined here as well.
+$logoWidth: 169px;
 
-  .main-content {
-    margin: 0 auto;
-    padding: 0;
-    top: 80px;
+#bprAbstractOneReg #nativeSponsorContent {
+  $sponsoredContentLeftMargin: ($logoWidth + 10) * -1;
+  margin-left: $sponsoredContentLeftMargin;
+}
 
-    #micrositeContainer .micrositeOneReg-section {
-      margin: 0;
+@media (min-width: 640px){
+#bprAbstractOneReg #nativeSponsorContent {
+  $sponsoredContentLeftMargin: ($logoWidth + 30) * -1;
+  margin-left: $sponsoredContentLeftMargin;
+}
+  #bprAbstractOneReg{
+    #nativeHeaderCompress {
+      margin: 0 auto;
+      width: auto;
+      padding: 0 20px;
+    }
+    #nativeLogo{
+      margin: 8px 0 0 10px;
     }
   }
 }
 
-@media (min-width: 640px) {
-  #bprAbstractOneReg {
-    .main-content {
-      top: 110px;
+@media (min-width: 960px){
+  #bprAbstractOneReg #nativeSponsorContent {
+    $sponsoredContentLeftMargin: ($logoWidth + 10) * -1;
+    margin-left: $sponsoredContentLeftMargin;
+  }
+  #bprAbstractOneReg .main-content{
+    margin-top: 0;
+    width:880px;
+  }
+  #bprAbstractOneReg #nativeHeader {
+    position: relative;
+    top:100px;
+    #nativeHeaderCompress {
+        margin: 0 auto;
+        width: 880px;
+        padding: 0;
     }
+  }
+
+  #bprAbstractOneReg.header-desktop-fixed #nativeHeader {
+    top:57px;
   }
 }
 
-@media (min-width: 960px) {
-  #bprAbstractOneReg {
-    #articleHeader #articleSponsorContainer {
-      margin-right: 0;
-    }
-    .main-content {
-      padding: 0 10px 50px !important;
-      top: 80px;
-      width: 960px;
-      z-index: 1;
-    }
+@media (min-width: 1280px){
+  #bprAbstractOneReg .main-content{
+    margin-top: 0;
+    width:1200px;
   }
-}
-
-@media (min-width: 1280px) {
-  #bprAbstractOneReg {
-    .main-content {
-      width: 1180px;
+  #bprAbstractOneReg #nativeHeader {
+    // position: fixed;
+    // top:100px;
+    #nativeHeaderCompress {
+        margin: 0 auto;
+        width: 1200px;
+        padding: 0;
     }
   }
 }

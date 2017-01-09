@@ -1,0 +1,819 @@
+$blackBkgColor: #1a1a1a;
+$blackTextColor: #fff;
+$whiteBkgColor: #fff;
+$whiteTextColor: #000;
+
+#nativeHeader {
+  @if $nativeThemeColor == white {
+    background: $whiteBkgColor;
+    color: $whiteTextColor;
+  } @else if $nativeThemeColor == black {
+    background: $blackBkgColor;
+    color: $blackTextColor;
+  }
+  box-shadow: 0 7px 40px -15px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0 7px 40px -15px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 0 7px 40px -15px rgba(0, 0, 0, 1);
+  height: 60px;
+  left: 0;
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  z-index: 3;
+}
+
+// Height of logo will fluctuate, top margin is MANUALLY set to vertically center within 60px of header space
+#nativeLogo {
+  float: left;
+  margin: 10px 0 0 10px;
+}
+
+#nativeSponsorContent {
+  @if $nativeThemeColor == white {
+    background: $whiteBkgColor;
+    color: $whiteTextColor;
+  } @else if $nativeThemeColor == black {
+    background: $blackBkgColor;
+    color: $blackTextColor;
+
+    p{
+      color:#ccc;
+    }
+  }
+  box-shadow: 0 15px 22px -8px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 15px 22px -8px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0 15px 22px -8px rgba(0, 0, 0, .5);
+  @include bottom-border-radius(5px);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 10px;
+
+  $sponsoredContentLeftMargin: ($logoWidth + 10) * -1;
+  margin-left: $sponsoredContentLeftMargin;
+
+  max-width:300px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 60px;
+  z-index: 1;
+
+
+  .nativeSponsorTagline {
+    display: inline-block;
+    font-size: 12px;
+
+    i{
+      font-size: 14px;
+    }
+
+    span{
+      font-family: 'NeueHaasGroteskText W01', Helvetica, Arial, sans-serif;
+    }
+
+    .icon-info:before {
+      margin-left: 10px;
+      position: relative;
+      top: 1px;
+    }
+
+    &.show {
+      display: none;
+    }
+  }
+
+  .nativeSponsorInfoPanel {
+    display: none;
+    margin-top: 5px;
+    padding-bottom: 10px;
+
+    &.show {
+      display: block;
+      p{
+        font-size: 10px;
+      }
+    }
+
+    .icon-closeButton:before {
+      margin-left: 10px;
+      position: relative;
+    }
+  }
+}
+
+#nativeMenus {
+  nav#nativeNavigation {
+    position: relative;
+    z-index: 2;
+
+    ul {
+      @if $nativeThemeColor == white {
+        background: #f7f7f7;
+      } @else if $nativeThemeColor == black {
+        background: #4d4d4d;
+      }
+      display: none;
+      position: relative;
+      top: 8px;
+      width: 100%;
+
+      li {
+        @if $nativeThemeColor == white {
+          border-bottom: 1px solid #ccc;
+        } @else if $nativeThemeColor == black {
+          border-bottom: 1px solid #808080;
+        }
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+
+        a {
+          &.active {
+              color:#00b3ac;
+          }
+        }
+
+        >ul {
+          display: none;
+
+          @if $nativeThemeColor == white {
+            background: #fff;
+          } @else if $nativeThemeColor == black {
+            background: #4d4d4d;
+          }
+        }
+
+        i {
+          display: none;
+        }
+
+        a{
+          @if $nativeThemeColor == white {
+            color:#4d4d4d;
+          } @else if $nativeThemeColor == black {
+            color:#fff;
+          }
+
+          display: block;
+          font-family:'NeueHaasGroteskText W01', Helvetica, Arial, sans-serif;
+          font-size: 13px;
+          padding: 15px 20px;
+
+          &:hover, &.hover {
+            color:#00b3ac;
+          }
+        }
+      }
+    }
+    &.open {
+      #nativeCollapsedNavigationText{
+        color:#00b3ac;
+      }
+      > ul{
+        -webkit-box-shadow: inset 0px 10px 6px -9px rgba(0,0,0,0.5);
+        -moz-box-shadow: inset 0px 10px 6px -9px rgba(0,0,0,0.5);
+        box-shadow: inset 0px 10px 6px -9px rgba(0,0,0,0.5);
+        display: inline-block;
+      }
+
+      + #nativeSocialShare{
+        display: block;
+        text-align: center;
+        ul{
+          display: inline-block;
+          height: auto;
+          overflow: hidden;
+          width: auto;
+        }
+      }
+    }
+    > #nativeCollapsedNavigationText {
+        &:before {
+          content: "Menu";
+        }
+    }
+  }
+}
+
+#nativeCollapsedNavigationText {
+  @if $nativeThemeColor == white {
+    color: #4d4d4d;
+    &:hover, &.hover {
+      color: #00b3ac;
+    }
+  } @else if $nativeThemeColor == black {
+    color: $blackTextColor;
+    &:hover, &.hover {
+      color: #00b3ac;
+    }
+  }
+  cursor: pointer;
+  float:right;
+  font-family:'NeueHaasGroteskText W01', Helvetica, Arial, sans-serif;
+  font-size:15px;
+  position: relative;
+  right: 20px;
+  top: 20px;
+
+  i.icon-play {
+    color: #00b3ac;
+    display: inline-block;
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+  }
+}
+
+#nativeSocialShare {
+
+  @if $nativeThemeColor == white {
+    background:#f7f7f7;
+  } @else if $nativeThemeColor == black {
+    background:#4d4d4d;
+  }
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.5);
+  display: none;
+  height: auto;
+  overflow: hidden;
+  padding:15px 20px;
+  position: relative;
+  top: 8px;
+
+  > i {
+    display: none;
+  }
+
+  ul {
+    li {
+      border-bottom: 0;
+      a{
+        @if $nativeThemeColor == white {
+          background:#999;
+          color:#fff;
+        } @else if $nativeThemeColor == black {
+          background:#fff;
+          color:#4d4d4d;
+        }
+        display: block;
+        height: 30px;
+        padding:2px;
+
+        width: 30px;
+        &:hover, &.hover {
+          background: #00b3ac;
+          color:#fff;
+        }
+      }
+    }
+  }
+}
+
+.share-bar-item {
+  float: left;
+  padding: 0 12px;
+}
+
+@media (min-width: 690px) {
+  #nativeLogo{
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 640px) {
+
+  #nativeHeaderCompress{
+    margin:0 auto;
+    width: 640px;
+  }
+
+  #nativeSponsorContent{
+    $sponsoredContentLeftMargin: ($logoWidth + 10) * -1;
+    margin-left: $sponsoredContentLeftMargin;
+
+    // margin-left: -155px;
+  }
+  #nativeMenus {
+    padding-left: 20px;
+    position: relative;
+
+    nav#nativeNavigation {
+      display: block;
+      float: left;
+      width: inherit;
+
+      @if($logoWidth >= 143) {
+        margin-left: 20px;
+      } @else {
+        $newMargin: 143 - $logoWidth + 20;
+        margin-left: $newMargin;
+      }
+
+      ul{
+        left: -21px;
+        top:42px;
+
+        @if $nativeThemeColor == white {
+          background: #f7f7f7;
+        } @else if $nativeThemeColor == black {
+          background: #1a1a1a;
+        }
+
+        li {
+          position: relative;
+
+          > ul li {
+            &:nth-of-type(4) {
+              @if $nativeThemeColor == white {
+                a {
+                  color: #a0a0a0;
+                }
+              } @else if $nativeThemeColor == black {
+                a {
+                  color: #b3b3b3;
+                }
+              }
+
+              a {
+                &:after {
+                  font-family: 'icomoon';
+                  speak: none;
+                  font-size: 30px;
+                  font-style: normal;
+                  font-weight: normal;
+                  font-variant: normal;
+                  text-transform: none;
+                  line-height: 1;
+                  bottom: 12px;
+                  margin-left: 4px;
+                  position: absolute;
+
+                  -webkit-font-smoothing: antialiased;
+                  -moz-osx-font-smoothing: grayscale;
+
+                  content: '\e600';
+                  color: #00b3ac;
+                }
+              }
+            }
+
+            a {
+              font-size: 13px;
+              line-height: 15px;
+              padding: 20px;
+
+              i {
+                display: inline;
+                top: 12px;
+                right: auto;
+                margin-left: 10px;
+                font-size: 30px;
+                position: absolute;
+                color: #00b3ac;
+              }
+            }
+          }
+
+          a {
+            padding: 15px 30px 15px 20px;
+            position: relative;
+
+            i {
+              display: inline-block;
+              position: absolute;
+              right: 10px;
+              top: 15px;
+            }
+          }
+          > ul.maintainHover {
+            background: #fff;
+            display: block !important;
+            left: 220px;
+            top: 0;
+            position: absolute;
+            box-shadow: none;
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+          }
+        }
+      }
+
+      &.open{
+        > ul{
+          box-shadow:inset 0px 10px 6px -9px rgba(0,0,0,0.5), 0 15px 22px -8px rgba(0, 0, 0, 0.5);
+          -moz-box-shadow:inset 0px 10px 6px -9px rgba(0,0,0,0.5), 0 15px 22px -8px rgba(0, 0, 0, 0.5);
+          -webkit-box-shadow:inset 0px 10px 6px -9px rgba(0,0,0,0.5), 0 15px 22px -8px rgba(0, 0, 0, 0.5);
+          position: absolute;
+          top:60px;
+          width:220px;
+
+          li:hover, li.hover {
+            > ul {
+              display: block;
+            }
+          }
+
+          li > ul {
+            box-shadow:inset 0px 0px 0px 0px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow:inset 0px 0px 0px 0px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(0, 0, 0, 0.5);
+            -webkit-box-shadow:inset 0px 0px 0px 0px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(0, 0, 0, 0.5);
+          }
+
+          ul {
+            position: absolute;
+            top: 0;
+            left: 220px;
+          }
+        }
+
+        + #nativeSocialShare ul{
+          display: none;
+        }
+      }
+
+      > #nativeCollapsedNavigationText {
+        display: block;
+        right:inherit;
+        top:20px;
+
+        &:before {
+          content: "Browse Topics";
+        }
+      }
+    }
+  }
+
+  #nativeSocialShare {
+    background:none;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    cursor: pointer;
+    display: block;
+    float: right;
+    overflow: visible;
+    padding:0;
+    // right:20px;
+    top: 15px;
+
+    .share-bar {
+      li {
+        clear: left;
+        margin-bottom: 20px;
+        &:last-child{
+          margin: 0;
+        }
+      }
+    }
+
+    > i{
+      @if $nativeThemeColor == white {
+        color: #00b3ac;
+
+        &:hover, &.hover {
+          color: #4d4d4d;
+        }
+      } @else if $nativeThemeColor == black {
+        color: $blackTextColor;
+
+        &:hover, &.hover {
+          color: #00b3ac;
+        }
+      }
+      display: inline-block;
+      float: right;
+      font-size: 26px;
+      margin-right:15px;
+    }
+
+    &.open {
+
+      > i{
+        @if $nativeThemeColor == white {
+          color: #4d4d4d;
+        } @else if $nativeThemeColor == black {
+          color: #00b3ac;
+        }
+      }
+
+      .share-bar {
+        display: block;
+        float: right;
+        margin-top: 0;
+        padding:20px 10px;
+        right:0;
+      }
+    }
+  }
+
+  .share-bar {
+
+    @if $nativeThemeColor == white {
+      background: #f7f7f7;
+    } @else if $nativeThemeColor == black {
+      background: #4d4d4d;
+    }
+    box-shadow:inset 0px 10px 6px -9px rgba(0,0,0,0.5), 0 15px 22px -8px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:inset 0px 10px 6px -9px rgba(0,0,0,0.5), 0 15px 22px -8px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow:inset 0px 10px 6px -9px rgba(0,0,0,0.5), 0 15px 22px -8px rgba(0, 0, 0, 0.5);
+    display: none;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top:45px;
+    width: auto;
+
+    &.open {
+      display: block;
+      z-index: 1;
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  #nativeHeader {
+    position: relative;
+    top: 0;
+  }
+  body.header-desktop-fixed {
+    #nativeHeader {
+      position: fixed;
+      top: 57px;
+    }
+  }
+  #nativeHeaderCompress{
+    height:auto;
+    margin: 0 auto;
+    width:880px;
+
+    #nativeMenus{
+      float: none;
+      margin:0;
+
+      &.collapsedMenu {
+        nav#nativeNavigation {
+          ul > li > ul {
+            margin-top: 0;
+            box-shadow:inset 0px 0px 0px 0px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow:inset 0px 0px 0px 0px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(0, 0, 0, 0.5);
+            -webkit-box-shadow:inset 0px 0px 0px 0px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(0, 0, 0, 0.5);
+
+            li a i {
+              top: 6px;
+            }
+          }
+        }
+
+      }
+
+      nav#nativeNavigation{
+        // margin: 0;
+        height: 60px;
+        visibility: hidden;
+        #nativeCollapsedNavigationText{
+          display: none;
+        }
+        > ul{
+          display: inline-block;
+          background: none;
+          height:60px;
+          padding:0;
+          left: 0;
+          right:inherit;
+          top: inherit;
+          width: auto;
+
+          li {
+            border:0;
+            display: inline;
+            float:left;
+
+            &:hover, &.hover {
+
+              > ul {
+                display: block;
+                position: absolute;
+                left: 0;
+              }
+
+              ul > li {
+                clear: left;
+                width: 100%;
+
+                @if $nativeThemeColor == white {
+                  border-bottom: 1px solid #ccc;
+                } @else if $nativeThemeColor == black {
+                  // background: #2d2d2d;
+                }
+
+                a {
+                  border: none;
+                  display: block;
+                }
+              }
+            }
+
+            > ul {
+              margin-top: 18px;
+              width: 300px;
+              box-shadow: inset 0px 10px 6px -9px rgba(0,0,0,0.5), 0 2px 20px -5px rgba(0, 0, 0, 0.5);
+              -moz-box-shadow: inset 0px 10px 6px -9px rgba(0,0,0,0.5), 0 2px 20px -5px rgba(0, 0, 0, 0.5);
+              -webkit-box-shadow: inset 0px 10px 6px -9px rgba(0,0,0,0.5), 0 2px 20px -5px rgba(0, 0, 0, 0.5);
+
+              @if $nativeThemeColor == white {
+                background: #f7f7f7;
+              } @else if $nativeThemeColor == black {
+                background: #1a1a1a;
+              }
+              li a {
+                font-size: 13px;
+                line-height: 15px;
+                padding: 20px;
+
+                i {
+                  display: inline;
+                  top: 12px;
+                  right: auto;
+                  margin-left: 10px;
+                  font-size: 30px;
+                  position: absolute;
+                  color: #00b3ac;
+                }
+              }
+            }
+
+            &:last-child{
+
+              a{
+                border: none;
+              }
+            }
+            a{
+              background:none;
+              @if $nativeThemeColor == white {
+                border-right: 1px solid #ccc;
+              } @else if $nativeThemeColor == black {
+                border-right: 1px solid #666;
+              }
+
+              display: inline;
+              line-height: 60px;
+              padding:7px 20px;
+
+              i {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      &.collapsedMenu{
+
+        nav#nativeNavigation{
+          float: left;
+          margin-left: 20px;
+          visibility: visible;
+          width:auto;
+
+          #nativeCollapsedNavigationText{
+            display: block;
+          }
+
+          &.open{
+            > ul{
+              display: inline-block;
+              visibility: visible;
+
+              // li:hover, &.hover {
+              //   > ul {
+              //     display: block;
+              //   }
+              // }
+
+              ul {
+                position: absolute;
+                top: 0;
+                left: 340px;
+              }
+
+            }
+          }
+
+          > ul {
+            visibility: hidden;
+          }
+
+          ul{
+
+            @if $nativeThemeColor == white {
+              background: #f7f7f7;
+            } @else if $nativeThemeColor == black {
+              background: #333;
+            }
+            height:auto;
+            padding:0;
+            position: absolute;
+            right:-61px;
+            top: 60px;
+            width: 340px;
+
+            li{
+
+              @if $nativeThemeColor == white {
+                border-bottom: 1px solid #ccc;
+              } @else if $nativeThemeColor == black {
+                border-bottom: 1px solid #808080;
+              }
+              display: block;
+              float: none;
+
+              > ul {
+                @if $nativeThemeColor == white {
+                  background: #fff;
+                } @else if $nativeThemeColor == black {
+                  background: #4d4d4d;
+                }
+              }
+
+              &:hover, &.hover {
+                > ul {
+                  left: 340px;
+                  top: 0;
+                  visibility: visible;
+                }
+              }
+              a{
+                border:0;
+                display: block;
+                line-height: 1;
+                padding: 15px 20px;
+
+                &:hover, &.hover {
+                  color:#00b3ac;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #nativeSocialShare{
+      // margin-right: 20px;
+      &.open .share-bar{
+        right:0;
+      }
+    }
+  }
+}
+
+@media (min-width:1280px){
+  #nativeHeaderCompress{
+    width:1200px;
+    #nativeMenus.collapsedMenu nav#nativeNavigation{
+      margin-right: 40px;
+      ul{
+        right:-81px;
+      }
+    }
+    #nativeMenus {
+      nav#nativeNavigation {
+        ul {
+          margin-left: 20px;
+          > li {
+            > ul li {
+              border-bottom: 1px solid #808080;
+              &:last-of-type {
+                border-bottom: none;
+              }
+            }
+
+            a {
+              font-size: 15px;
+
+              i {
+                display: none;
+              }
+            }
+            &:hover, &.hover {
+              > ul {
+                display: block;
+                position: absolute;
+                left: -21px;
+              }
+            }
+          }
+        }
+      }
+    }
+    #nativeSocialShare{
+      // margin-right: 20px;
+    }
+  }
+  #nativeLogo{
+    margin-left: 0;
+  }
+}
