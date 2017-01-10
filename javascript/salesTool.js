@@ -91,64 +91,66 @@ $(document).ready(function() {
   userSelectsSiteType();
   toggleMenuOnArrowClick();
 
+  function makeWhite() {
+    $('#nativeHeader').css({'background':'#fff', 'color':'#000'});
+    $('#nativeMenus nav#nativeNavigation ul').css({'background': '#f7f7f7'});
+    $('#nativeMenus nav#nativeNavigation ul li').css({'border-bottom': '1px solid #ccc'});
+    $('#nativeMenus nav#nativeNavigation ul li > ul').css({'background': '#fff'});
+    $('#nativeMenus nav#nativeNavigation ul li a').css({'color': '#4d4d4d'});
+    $('#nativeCollapsedNavigationText').css({'color': '#4d4d4d'});
+    $('#nativeSocialShare').css({'background': 'none'});
+    $('#nativeSocialShare ul li a').css({'background': '#999', 'color': '#fff'});
+    $('#nativeMenus nav#nativeNavigation ul').css({'background': '#f7f7f7'});
+    $('#nativeMenus nav#nativeNavigation ul li > ul li:nth-of-type(4) a').css({'color': '#a0a0a0'});
+    $('#nativeSocialShare > i').css({'color': '#00b3ac'});
+    $('#nativeSocialShare.open > i').css({'color': '#4d4d4d'});
+    $('#nativeSocialShare .share-bar').css({'background': '#f7f7f7'});
+    $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation > ul li:hover ul > li').css({'border-bottom': '1px solid #ccc'});
+    $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation > ul').css({'background': 'none'});
+    $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation:last-child a').css({'border-right': '1px solid #ccc'});
+    $('#nativeSponsorContent').css({'background':'white'});
+    $('#nativeSponsorContent p').css({'color':'#666'});
+  }
+
+  function makeBlack() {
+    $('#nativeHeader').css({'background':'#000', 'color':'#fff'});
+    $('#nativeMenus nav#nativeNavigation ul').css({'background': '#4d4d4d'});
+    $('#nativeMenus nav#nativeNavigation ul li').css({'border-bottom': '1px solid #808080'});
+    $('#nativeMenus nav#nativeNavigation ul li > ul').css({'background': '#4d4d4d'});
+    $('#nativeMenus nav#nativeNavigation ul li a').css({'color': '#fff'});
+    $('#nativeCollapsedNavigationText').css({'color': '#fff'});
+    $('#nativeSocialShare').css({'background': 'none'});
+    $('#nativeSocialShare ul li a').css({'background': '#fff', 'color': '#4d4d4d'});
+    $('#nativeMenus nav#nativeNavigation ul').css({'background': '#1a1a1a'});
+    $('#nativeMenus nav#nativeNavigation ul li > ul li:nth-of-type(4) a').css({'color': '#b3b3b3'});
+    $('#nativeSocialShare > i').css({'color': '#fff'});
+    $('#nativeSocialShare.open > i').css({'color': '#00b3ac'});
+    $('#nativeSocialShare .share-bar').css({'background': '#4d4d4d'});
+    $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation > ul li:hover ul > li').css({'border-bottom': '1px solid #2d2d2d'});
+    $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation > ul').css({'background': 'none'});
+    $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation:last-child a').css({'border-right': '1px solid #666'});
+    $('#nativeSponsorContent').css({'background':'black'});
+    $('#nativeSponsorContent p').css({'color':'#ccc'});
+  }
+
   $('#colorChoice').on('change', function() {
     if ($(this).val() == 'White') {
-      $('#nativeHeader').css({'background':'#fff', 'color':'#000'});
-      $('#nativeMenus nav#nativeNavigation ul').css({'background': '#f7f7f7'});
-      $('#nativeMenus nav#nativeNavigation ul li').css({'border-bottom': '1px solid #ccc'});
-      $('#nativeMenus nav#nativeNavigation ul li > ul').css({'background': '#fff'});
-      $('#nativeMenus nav#nativeNavigation ul li a').css({'color': '#4d4d4d'});
-      $('#nativeCollapsedNavigationText').css({'color': '#4d4d4d'});
-      $('#nativeSocialShare').css({'background': '#f7f7f7'});
-      $('#nativeSocialShare ul li a').css({'background': '#999', 'color': '#fff'});
-      $('#nativeMenus nav#nativeNavigation ul').css({'background': '#f7f7f7'});
-      $('#nativeMenus nav#nativeNavigation ul li > ul li:nth-of-type(4) a').css({'color': '#a0a0a0'});
-      $('#nativeSocialShare > i').css({'color': '#00b3ac'});
-      $('#nativeSocialShare.open > i').css({'color': '#4d4d4d'});
-      $('#nativeSocialShare .share-bar').css({'background': '#f7f7f7'});
-      $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation > ul li:hover ul > li').css({'border-bottom': '1px solid #ccc'});
-      $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation > ul').css({'background': '#f7f7f7'});
-      $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation:last-child a').css({'border-right': '1px solid #ccc'});
-
+      makeWhite();
       localStorage.setItem('layout', 'White');
     } else if ($(this).val() == 'Black') {
-      $('#nativeHeader').css({'background':'#000', 'color':'#fff'});
-      $('#nativeMenus nav#nativeNavigation ul').css({'background': '#4d4d4d'});
-      $('#nativeMenus nav#nativeNavigation ul li').css({'border-bottom': '1px solid #808080'});
-      $('#nativeMenus nav#nativeNavigation ul li > ul').css({'background': '#4d4d4d'});
-      $('#nativeMenus nav#nativeNavigation ul li a').css({'color': '#fff'});
-      $('#nativeCollapsedNavigationText').css({'color': '#fff'});
-      $('#nativeSocialShare').css({'background': '#4d4d4d'});
-      $('#nativeSocialShare ul li a').css({'background': '#fff', 'color': '#4d4d4d'});
-      $('#nativeMenus nav#nativeNavigation ul').css({'background': '#1a1a1a'});
-      $('#nativeMenus nav#nativeNavigation ul li > ul li:nth-of-type(4) a').css({'color': '#b3b3b3'});
-      $('#nativeSocialShare > i').css({'color': '#fff'});
-      $('#nativeSocialShare.open > i').css({'color': '#00b3ac'});
-      $('#nativeSocialShare .share-bar').css({'background': '#4d4d4d'});
-      $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation > ul li:hover ul > li').css({'border-bottom': '1px solid #2d2d2d'});
-      $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation > ul').css({'background': '#1a1a1a'});
-      $('#nativeHeaderCompress #nativeMenus nav#nativeNavigation:last-child a').css({'border-right': '1px solid #666'});
-
+      makeBlack();
       localStorage.setItem('layout', 'Black');
     }
 	});
 
   // Local Storage for Layout Config
-	// if (localStorage.getItem("layout") != null) {
-	// 	if (localStorage.getItem("layout") == 'A') {
-  //     $("#featuredAssets").css('display','block');
-  //     $("#assetsListing").css('display','block');
-	// 		$('#layoutChoice option').eq(0).prop('selected', true);
-	// 	} else if (localStorage.getItem("layout") == 'B'){
-  //     $("#featuredAssets").css('display','block');
-  //     $("#assetsListing").css('display','none');
-	// 		$('#layoutChoice option').eq(1).prop('selected', true);
-	// 	} else {
-  //     $("#featuredAssets").css('display','none');
-  //     $("#assetsListing").css('display','block');
-  //     $('#layoutChoice option').eq(2).prop('selected', true);
-  //   }
-	// }
+	if (localStorage.getItem("layout") != null) {
+		if (localStorage.getItem("layout") == 'White') {
+      makeWhite();
+		} else if (localStorage.getItem("layout") == 'Black'){
+      makeBlack();
+		}
+	}
 
 
 });
