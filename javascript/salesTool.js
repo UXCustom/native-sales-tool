@@ -200,11 +200,9 @@ $(document).ready(function() {
     $('#heroImageChoice').change(function() {
       var clickedOption = $('#heroImageChoice option:selected').val(),
           totalOptions = heroImageOptions.length;
-      console.log(clickedOption);
 
       for (i=0;i<totalOptions;i++) {
         if (heroImageOptions[i].id === clickedOption) {
-          console.log(heroImageOptions[i].src);
           $('#heroImageContainerInner img').attr('src',heroImageOptions[i].src);
         }
       }
