@@ -151,6 +151,65 @@ $(document).ready(function() {
       makeBlack();
 		}
 	}
+  // Get Sales Tool Selected Settings and open Email via Footer "Email" Link
+  var getSettings = function() {
+    var siteType = $('.demo-site-nav-list-item.selected').text(),
+        colorChoice = $('#colorChoice option:selected').val();
+    var mailto = 'mailto:?body=Site Type: '+ siteType+'%0D%0A' +'Color Choice: '+colorChoice;
+    $('.demo-footer-button.demo-button-email').attr('href',mailto);
+  }
+  getSettings();
 
+  // Change Hero Image on Sales Tool Drop-down selection
+  var onClickChangeHero = function() {
+    var heroImageOptions = [
+      {
+        'id': '1',
+        'src': 'images/hero/hero_images_01.jpg'
+      },
+      {
+        'id': '2',
+        'src': 'images/hero/hero_images_02.jpg'
+      },
+      {
+        'id': '3',
+        'src': 'images/hero/hero_images_03.jpg'
+      },
+      {
+        'id': '4',
+        'src': 'images/hero/hero_images_04.jpg'
+      },
+      {
+        'id': '5',
+        'src': 'images/hero/hero_images_05.jpg'
+      },
+      {
+        'id': '6',
+        'src': 'images/hero/hero_images_06.jpg'
+      },
+      {
+        'id': '7',
+        'src': 'images/hero/hero_images_07.jpg'
+      },
+      {
+        'id': '8',
+        'src': 'images/hero/hero_images_08.jpg'
+      }
+    ]
+
+    $('#heroImageChoice').change(function() {
+      var clickedOption = $('#heroImageChoice option:selected').val(),
+          totalOptions = heroImageOptions.length;
+      console.log(clickedOption);
+
+      for (i=0;i<totalOptions;i++) {
+        if (heroImageOptions[i].id === clickedOption) {
+          console.log(heroImageOptions[i].src);
+          $('#heroImageContainerInner img').attr('src',heroImageOptions[i].src);
+        }
+      }
+    });
+  }
+  onClickChangeHero();
 
 });

@@ -40,35 +40,33 @@
   </head>
   <body>
     <div id="editWindow">
-      <form id="demo-email-settings-form" action="mailto:cguarrera@techtarget.com?subject=myform_submission" enctype="text/plain">
-        <div class="demo-header"><img src="http://cdn.ttgtmedia.com/rms/ux/responsive/img/nav_logo@2x.png" alt="TechTarget">
-          <p class="demo-header-title">Embedded Sites Demo</p>
+      <div class="demo-header"><img src="http://cdn.ttgtmedia.com/rms/ux/responsive/img/nav_logo@2x.png" alt="TechTarget">
+        <p class="demo-header-title">Embedded Sites Demo</p>
+      </div>
+      <div class="demo-site-nav hideNav">
+        <ul class="demo-site-nav-list">
+          <li data-id="1" class="demo-site-nav-list-item">Article</li>
+          <li data-id="2" class="demo-site-nav-list-item">Embedded - Center</li>
+          <li data-id="3" class="demo-site-nav-list-item">Embedded - Dark</li>
+          <li data-id="4" class="demo-site-nav-list-item">Embedded - Light</li>
+          <li data-id="4" class="demo-site-nav-list-item selected">Native Advertising</li>
+        </ul><i data-icon="5" class="icon icon-arrow-down"></i>
+      </div>
+      <div class="demo-settings">
+        <p>Select A Color
+          <select id="colorChoice">
+            <option value="White" selected="selected">White</option>
+            <option value="Black">Black</option>
+          </select>
+        </p>
+      </div>
+      <div class="demo-footer"><a title="Email These Settings" class="demo-footer-button demo-button-email">Email</a>
+        <button title="Download PDF" onclick="javascript:generatePDF();" class="demo-footer-button demo-button-pdf">PDF</button>
+        <button title="Reset Settings" class="demo-footer-button demo-button-reset reset">Reset</button>
+        <div title="Close" class="pull">
+          <p></p>
         </div>
-        <div class="demo-site-nav hideNav">
-          <ul class="demo-site-nav-list">
-            <li data-id="1" class="demo-site-nav-list-item">Article</li>
-            <li data-id="2" class="demo-site-nav-list-item">Embedded - Center</li>
-            <li data-id="3" class="demo-site-nav-list-item">Embedded - Dark</li>
-            <li data-id="4" class="demo-site-nav-list-item">Embedded - Light</li>
-            <li data-id="4" class="demo-site-nav-list-item selected">Native Advertising</li>
-          </ul><i data-icon="5" class="icon icon-arrow-down"></i>
-        </div>
-        <div class="demo-settings">
-          <p>Select A Color
-            <select id="colorChoice">
-              <option value="White" selected="selected">White</option>
-              <option value="Black">Black</option>
-            </select>
-          </p>
-        </div>
-        <div class="demo-footer"><a title="Email These Settings" onclick="javascript:getSettings();" class="demo-footer-button demo-button-email">Email</a>
-          <button title="Download PDF" onclick="javascript:generatePDF();" class="demo-footer-button demo-button-pdf">PDF</button>
-          <button title="Reset Settings" class="demo-footer-button demo-button-reset reset">Reset</button>
-          <div title="Close" class="pull">
-            <p></p>
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
     <div class="site-container">
       <header class="header">

@@ -40,7 +40,6 @@ html(lang='en', dir='ltr')
 
   body
     #editWindow
-      form#demo-email-settings-form(action="mailto:cguarrera@techtarget.com?subject=myform_submission")(enctype="text/plain")
         div.demo-header
           img(src="http://cdn.ttgtmedia.com/rms/ux/responsive/img/nav_logo@2x.png" alt="TechTarget")
           p.demo-header-title Embedded Sites Demo
@@ -58,7 +57,7 @@ html(lang='en', dir='ltr')
               option(value="White", selected="selected") White
               option(value="Black") Black
         div.demo-footer
-          a(title="Email These Settings").demo-footer-button.demo-button-email(onclick="javascript:getSettings();") Email
+          a(title="Email These Settings").demo-footer-button.demo-button-email Email
           button(title="Download PDF").demo-footer-button.demo-button-pdf(onclick="javascript:generatePDF();") PDF
           button(title="Reset Settings").demo-footer-button.demo-button-reset.reset Reset
           .pull(title="Close")
