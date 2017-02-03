@@ -134,6 +134,9 @@ $(document).ready(function() {
     $('#nativeSponsorContent p').css({'color':'#ccc'});
   }
 
+  var updatedCSS = $('#sheet1').attr('href');
+  localStorage.setItem('css', updatedCSS);
+
   $('#colorChoice').on('change', function() {
     if ($(this).val() == 'White') {
       makeWhite();
